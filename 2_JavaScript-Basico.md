@@ -1,8 +1,8 @@
-# Java Script básico
+# JavaScript básico
 
-índice
+Índice
 
-- [Java Script básico](#java-script-básico)
+- [JavaScript básico](#javascript-básico)
   - [`console.log` em JavaScript?](#consolelog-em-javascript)
   - [Diferenças na Execução do Código JavaScript entre o Node.js e o Navegador](#diferenças-na-execução-do-código-javascript-entre-o-nodejs-e-o-navegador)
   - [Variáveis `let` em JavaScript](#variáveis-let-em-javascript)

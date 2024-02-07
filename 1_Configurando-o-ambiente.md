@@ -1,14 +1,14 @@
 # Configurando o ambiente
 
-## ìndice
+Índice
 
 - [Configurando o ambiente](#configurando-o-ambiente)
-  - [ìndice](#ìndice)
   - [Instalando o Node e VSCode em ambiente linux](#instalando-o-node-e-vscode-em-ambiente-linux)
   - [Inicializando o Git em um projeto](#inicializando-o-git-em-um-projeto)
     - [Para criar um novo repositório no GitHub, siga os passos abaixo](#para-criar-um-novo-repositório-no-github-siga-os-passos-abaixo)
     - [Criação de chave SSH](#criação-de-chave-ssh)
   - [inicialização do npm](#inicialização-do-npm)
+  - [Extenções para o VSCode](#extenções-para-o-vscode)
 
 ## Instalando o Node e VSCode em ambiente linux
 
@@ -274,3 +274,14 @@ npm install express
 ~~~
 
 Isso instalará o Express e suas dependências no diretório `node_modules` do seu projeto, e essas dependências serão listadas no seu `package.json` sob a seção "dependencies".
+
+## Extenções para o VSCode
+
+- **Code Runner:** A extensão Code Runner para o Visual Studio Code é uma ferramenta que permite executar código de várias linguagens de programação diretamente no editor. Sua função principal é facilitar o processo de testar e executar pequenos trechos de código, fornecendo uma interface simples para compilar e executar programas sem a necessidade de sair do ambiente de desenvolvimento.
+- **Code Time:** A extensão Code Time para o Visual Studio Code é uma ferramenta que ajuda os desenvolvedores a rastrear e analisar seu tempo de codificação diretamente no ambiente de desenvolvimento. Ele fornece métricas e insights sobre o tempo gasto em diferentes projetos, linguagens de programação e até mesmo nas atividades específicas dentro do código-fonte. Além disso, o Code Time pode ajudar os desenvolvedores a melhorar sua produtividade, fornecendo feedback e sugestões com base nos padrões de uso e nas melhores práticas de desenvolvimento.
+- **EJS language suport:** A extensão EJS Language Support para o Visual Studio Code é uma ferramenta que oferece suporte aprimorado para a linguagem EJS (Embedded JavaScript). EJS é uma linguagem de modelo que permite a criação de páginas HTML dinâmicas utilizando JavaScript embutido. Com a extensão EJS Language Support, os desenvolvedores podem desfrutar de recursos como realce de sintaxe, formatação automática, IntelliSense e outras funcionalidades específicas para o desenvolvimento com EJS dentro do ambiente do VS Code. Isso facilita o processo de codificação e melhora a produtividade ao trabalhar com esse tipo de tecnologia.
+- **Git Graph:** A extensão "Git Graph" para o Visual Studio Code é uma ferramenta que permite visualizar de forma interativa o histórico do Git dentro do ambiente de desenvolvimento. Com ela, os desenvolvedores podem visualizar e interagir com o histórico de commits, branches, merges e tags do repositório Git diretamente no editor. A extensão oferece recursos como gráficos de linha do tempo, informações detalhadas sobre commits e a capacidade de comparar diferentes branches, o que facilita a compreensão e a navegação dentro do histórico do projeto. Isso ajuda os desenvolvedores a entender melhor a evolução do código, colaborar com colegas de equipe e resolver problemas de forma mais eficiente.
+- **StandardJS - JavaScript Standard Style:** A extensão "standardJS" para o Visual Studio Code é uma ferramenta que facilita a adesão ao JavaScript Standard Style dentro do ambiente de desenvolvimento. O JavaScript Standard Style é um conjunto de regras de estilo para o JavaScript, projetado para promover a consistência e a legibilidade do código. Com a extensão, os desenvolvedores podem formatar automaticamente o código conforme as diretrizes do JavaScript Standard Style, identificar e corrigir problemas de estilo enquanto codificam, o que ajuda a manter um código limpo e padronizado. Isso é especialmente útil para equipes de desenvolvimento que desejam seguir um estilo de codificação consistente em seus projetos JavaScript.
+- **Reload:** A extensão "Reload" para o Visual Studio Code é uma ferramenta que permite recarregar automaticamente o Visual Studio Code quando arquivos ou configurações são alterados. Isso é útil para desenvolvedores que desejam ver as alterações aplicadas imediatamente sem a necessidade de fechar e reabrir o editor manualmente. A extensão ajuda a acelerar o fluxo de trabalho de desenvolvimento, especialmente durante a personalização do ambiente de desenvolvimento ou ao trabalhar em projetos que exigem alterações frequentes nos arquivos de configuração.
+- **Live Server:** A extensão "Live Server" para o Visual Studio Code é uma ferramenta que permite aos desenvolvedores iniciar rapidamente um servidor local para visualizar e testar páginas da web em tempo real. Com essa extensão, você pode simplesmente clicar com o botão direito do mouse no arquivo HTML que deseja visualizar e selecionar "Open with Live Server" para iniciar um servidor local automaticamente e abrir a página no navegador padrão. Além disso, o Live Server atualiza automaticamente a página no navegador sempre que você fizer alterações no código-fonte, permitindo uma experiência de desenvolvimento mais dinâmica e eficiente. Essa extensão é útil para desenvolvedores da web que desejam visualizar instantaneamente as alterações em suas páginas sem a necessidade de recarregar manualmente o navegador a cada modificação.
+- **Material Icon Theme:** A extensão "Material Icon Theme" para o Visual Studio Code é um conjunto de ícones que substitui os ícones padrão do editor por ícones inspirados no Material Design, o estilo de design desenvolvido pelo Google. Esses ícones são projetados para ajudar os desenvolvedores a identificar facilmente diferentes tipos de arquivos e pastas em seus projetos, tornando a navegação e a organização do código mais intuitivas e visuais. Com essa extensão, os desenvolvedores podem personalizar a aparência do Visual Studio Code de acordo com suas preferências estéticas e melhorar a experiência de uso do editor.
