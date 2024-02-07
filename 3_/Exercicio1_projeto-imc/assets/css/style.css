@@ -1,0 +1,76 @@
+:root {
+    --magenta-escuro: #8b008b;
+    --neve: #fffafa;
+}
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: var(--magenta-escuro);
+    font-family: sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.content {
+    max-width: 460px;
+    margin: 50px auto;
+    background-color: var(--neve);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.content table {
+    margin: 20px auto;
+}
+
+.content table caption {
+    text-align: right;
+    font-size: 12px;
+}
+
+.content table th, .content table td {
+    padding: 5px;
+    text-align: left;
+}
+
+.content form label,.content form input, .content form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.content form input {
+    font-size: 20px;
+    height: 50px;
+    padding: 0 15px;
+}
+
+.content form button {
+    border: none;
+    background: var(--magenta-escuro);
+    color: var(--neve);
+    font-size: 18px;
+    font-weight: bold;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.content form button:hover {
+    opacity: 80%;
+}
+
+.paragraph-result-suc {
+    color: var(--magenta-escuro);
+}
+
+.paragraph-result-err {
+    color: red;
+}
