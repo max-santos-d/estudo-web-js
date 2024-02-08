@@ -4,9 +4,12 @@
 
 - [Configurando o ambiente](#configurando-o-ambiente)
   - [Instalando o Node e VSCode em ambiente linux](#instalando-o-node-e-vscode-em-ambiente-linux)
-  - [Inicializando o Git em um projeto](#inicializando-o-git-em-um-projeto)
-    - [Para criar um novo repositório no GitHub, siga os passos abaixo](#para-criar-um-novo-repositório-no-github-siga-os-passos-abaixo)
-    - [Criação de chave SSH](#criação-de-chave-ssh)
+  - [Git](#git)
+    - [Inicializando o Git em um projeto](#inicializando-o-git-em-um-projeto)
+    - [Criar um novo repositório no GitHub](#criar-um-novo-repositório-no-github)
+    - [Criação de chave SSH para utilização do github](#criação-de-chave-ssh-para-utilização-do-github)
+    - [Comandos git importantes](#comandos-git-importantes)
+    - [](#)
   - [inicialização do npm](#inicialização-do-npm)
   - [Extenções para o VSCode](#extenções-para-o-vscode)
 
@@ -67,7 +70,9 @@ sudo apt update
 sudo apt upgrade code
 ~~~
 
-## Inicializando o Git em um projeto
+## Git
+
+### Inicializando o Git em um projeto
 
 Para inicializar o Git em um projeto, você precisa seguir os passos abaixo:
 
@@ -148,7 +153,7 @@ git commit -m "Inicializando o repositório Git"
 
 Se você planeja armazenar seu código em um repositório remoto, como GitHub, GitLab ou Bitbucket, você precisará conectar seu repositório local a um repositório remoto. Siga as instruções fornecidas pelo serviço de hospedagem de repositórios para criar um novo repositório remoto.
 
-### Para criar um novo repositório no GitHub, siga os passos abaixo
+### Criar um novo repositório no GitHub
 
 1- Faça login na sua conta GitHub:
 
@@ -166,7 +171,7 @@ Se você planeja armazenar seu código em um repositório remoto, como GitHub, G
 - Inicialize este repositório com um README, um arquivo .gitignore ou uma licença, se desejar.
 - Clique em "Create repository" (Criar repositório).
 
-### Criação de chave SSH
+### Criação de chave SSH para utilização do github
 
 Para salvar suas alteraçõe no repositório é necessario realizar uma configuração de chave SSH.
 
@@ -210,6 +215,32 @@ git push -u origin main
 ~~~
 
 Agora, seu projeto está sob controle de versão usando o Git, e você pode continuar a trabalhar no desenvolvimento, criando novos commits à medida que avança no projeto.
+
+### Comandos git importantes
+
+- Gerenciar repositórios remote
+  - Verificação de controle remoto: `git remote -v`
+  - Definir um novo controle remoto: `git remote add origin git@github.com:seu-usuario/seu-repositorio.git`
+  - Alterar a URL de um repositório remoto.
+    - Alternar URLs remotes de SSH para HTTPS: `git remote set-url origin https://github.com/OWNER/REPOSITORY.git`
+    - Mudar as URLs remotas de HTTPS para SSH: `git remote set-url origin git@github.com:OWNER/REPOSITORY.git`
+  - Renomear um repositório remoto: `git remote rename origin destination`
+      - `origin`: Nome remoto existente.
+      - `destination` : Novo nome para o remoto
+  - Remover um repositório remoto: `git remote rm destination`
+    - `destination` : Nome de repositório remoto
+- Verificação de configurações git: 
+  - `git config --list`
+- Recuperar as alterações do repositório remoto: 
+  - `git fatch`
+- Mesclar as alterações baixadas pelo “git fetch” com o repositório local: 
+  - `git merge`
+- Realizar o “git fetch” e, em seguida, o “git merge” automaticamente:
+  - `git pull`
+- 
+
+### 
+
 
 ## inicialização do npm
 
