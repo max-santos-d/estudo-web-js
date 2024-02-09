@@ -1095,6 +1095,8 @@ São resolvidas pequenas questôes relacionadas a logica de programação, utili
 
 ## Exercício 03 - Criando um timer com setInterval
 
-O pequeno projeto envolve as tecnologias do HTML, CSS e JAVASCRIPT para desenvolver um projeto em que, através de botões, pode-se controlar um timer, podendo inicia-l, pausa-lo e zerar seu valor.A pasta referente ao mini projeto pode ser encontrado em `./3_/Exercicio3_timer-setInterval`.
+O pequeno projeto envolve as tecnologias do HTML, CSS e JAVASCRIPT para desenvolver um projeto em que, através de botões, pode-se controlar um timer, podendo inicia-l, pausa-lo e zerar seu valor. A pasta referente ao mini projeto pode ser encontrado em `./3_/Exercicio3_timer-setInterval`.
 
 ## Exercício 04 - Criando uma lista de tarefas
+
+O pequeno projeto envolve tecnologias como o HTML, CSS e o JAVASCRIPT para o desenvolvimento de uma aplicação para criação de tarefas, com funcionalidade de salvamento no localStorage. A pasta referente ao mini projeto pode ser encontrado em `./3_/Exercicio4_lista-de-tarefas`.
