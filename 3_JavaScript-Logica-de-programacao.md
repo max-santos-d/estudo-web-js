@@ -1099,4 +1099,4 @@ O pequeno projeto envolve as tecnologias do HTML, CSS e JAVASCRIPT para desenvol
 
 ## Exercício 04 - Criando uma lista de tarefas
 
-O pequeno projeto envolve tecnologias como o HTML, CSS e o JAVASCRIPT para o desenvolvimento de uma aplicação para criação de tarefas, com funcionalidade de salvamento no localStorage. A pasta referente ao mini projeto pode ser encontrado em `./3_/Exercicio4_lista-de-tarefas`.
+O pequeno projeto envolve tecnologias como o HTML, CSS e o JAVASCRIPT para o desenvolvimento de uma aplicação para criação de tarefas, com funcionalidade de salvamento no localStorage. A pasta referente ao mini projeto pode ser encontrado [aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/3_/Exercicio4_lista-de-tarefas) `./3_/Exercicio4_lista-de-tarefas`.
