@@ -9,7 +9,6 @@
     - [Criar um novo repositório no GitHub](#criar-um-novo-repositório-no-github)
     - [Criação de chave SSH para utilização do github](#criação-de-chave-ssh-para-utilização-do-github)
     - [Comandos git importantes](#comandos-git-importantes)
-    - [](#)
   - [inicialização do npm](#inicialização-do-npm)
   - [Extenções para o VSCode](#extenções-para-o-vscode)
 
@@ -225,22 +224,18 @@ Agora, seu projeto está sob controle de versão usando o Git, e você pode cont
     - Alternar URLs remotes de SSH para HTTPS: `git remote set-url origin https://github.com/OWNER/REPOSITORY.git`
     - Mudar as URLs remotas de HTTPS para SSH: `git remote set-url origin git@github.com:OWNER/REPOSITORY.git`
   - Renomear um repositório remoto: `git remote rename origin destination`
-      - `origin`: Nome remoto existente.
-      - `destination` : Novo nome para o remoto
+    - `origin`: Nome remoto existente.
+    - `destination` : Novo nome para o remoto
   - Remover um repositório remoto: `git remote rm destination`
     - `destination` : Nome de repositório remoto
-- Verificação de configurações git: 
+- Verificação de configurações git:
   - `git config --list`
-- Recuperar as alterações do repositório remoto: 
+- Recuperar as alterações do repositório remoto:
   - `git fatch`
-- Mesclar as alterações baixadas pelo “git fetch” com o repositório local: 
+- Mesclar as alterações baixadas pelo “git fetch” com o repositório local:
   - `git merge`
 - Realizar o “git fetch” e, em seguida, o “git merge” automaticamente:
   - `git pull`
-- 
-
-### 
-
 
 ## inicialização do npm
 
