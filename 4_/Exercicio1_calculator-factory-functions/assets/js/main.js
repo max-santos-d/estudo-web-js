@@ -29,7 +29,7 @@ function createCalculator() {
 
         result(inputText) {
             try {
-                let result = eval(inputText);
+                const result = eval(inputText);
                 if (!result) return this.display.value = 'ERRO';
                 this.display.value = String(result);
                 this.display.focus();
