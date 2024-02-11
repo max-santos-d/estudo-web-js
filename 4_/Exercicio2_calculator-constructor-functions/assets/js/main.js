@@ -3,6 +3,7 @@ function CreateCalculator() {
 
     this.init = () => {
         this.buttonClick();
+        this.enterPress();
     };
 
     this.buttonClick = () => {
@@ -20,21 +21,21 @@ function CreateCalculator() {
 
             this.display.focus();
         })
-    }
-
-    this.pressButton = (display, textButton) => {
-        display.value += textButton;
     };
 
-    this.clearInput = (display) => {
-        display.value = '';
+    this.enterPress = () => {
+        document.addEventListener('keypress', event => {
+            if(event.key === 'Enter') this.calc(this.display);
+        });
     };
 
-    this.delete = (input) => {
-        input.value = input.value.slice(0, -1);
-    };
+    this.pressButton = (display, textButton) => display.value += textButton;
 
-    this.calc = (display) => {
+    this.clearInput = display => display.value = '';
+
+    this.delete = input => input.value = input.value.slice(0, -1);
+
+    this.calc = display => {
         try{
             const calculation = eval(display.value);
             if(!calculation) display.value = 'ERRO';
