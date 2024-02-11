@@ -11,6 +11,7 @@
     - [Comandos git importantes](#comandos-git-importantes)
   - [inicialização do npm](#inicialização-do-npm)
   - [Extenções para o VSCode](#extenções-para-o-vscode)
+  - [Comandos terminal](#comandos-terminal)
 
 ## Instalando o Node e VSCode em ambiente linux
 
@@ -311,3 +312,104 @@ Isso instalará o Express e suas dependências no diretório `node_modules` do s
 - **Reload:** A extensão "Reload" para o Visual Studio Code é uma ferramenta que permite recarregar automaticamente o Visual Studio Code quando arquivos ou configurações são alterados. Isso é útil para desenvolvedores que desejam ver as alterações aplicadas imediatamente sem a necessidade de fechar e reabrir o editor manualmente. A extensão ajuda a acelerar o fluxo de trabalho de desenvolvimento, especialmente durante a personalização do ambiente de desenvolvimento ou ao trabalhar em projetos que exigem alterações frequentes nos arquivos de configuração.
 - **Live Server:** A extensão "Live Server" para o Visual Studio Code é uma ferramenta que permite aos desenvolvedores iniciar rapidamente um servidor local para visualizar e testar páginas da web em tempo real. Com essa extensão, você pode simplesmente clicar com o botão direito do mouse no arquivo HTML que deseja visualizar e selecionar "Open with Live Server" para iniciar um servidor local automaticamente e abrir a página no navegador padrão. Além disso, o Live Server atualiza automaticamente a página no navegador sempre que você fizer alterações no código-fonte, permitindo uma experiência de desenvolvimento mais dinâmica e eficiente. Essa extensão é útil para desenvolvedores da web que desejam visualizar instantaneamente as alterações em suas páginas sem a necessidade de recarregar manualmente o navegador a cada modificação.
 - **Material Icon Theme:** A extensão "Material Icon Theme" para o Visual Studio Code é um conjunto de ícones que substitui os ícones padrão do editor por ícones inspirados no Material Design, o estilo de design desenvolvido pelo Google. Esses ícones são projetados para ajudar os desenvolvedores a identificar facilmente diferentes tipos de arquivos e pastas em seus projetos, tornando a navegação e a organização do código mais intuitivas e visuais. Com essa extensão, os desenvolvedores podem personalizar a aparência do Visual Studio Code de acordo com suas preferências estéticas e melhorar a experiência de uso do editor.
+
+## Comandos terminal
+
+Se você usa MacOS
+- O macOs roda sobre Darwin OS (kernel XNU), que é um sistema UNIX-like. Então, 
+todos os comandos abaixo também funcionam normalmente no MacOS. Recomendo
+utilizar o gerenciador de pacotes homebrew caso necessário instalar algo.
+Se quiser o mesmo terminal que eu (ZSH com Oh My ZSH), utilize este vídeo para 
+configurar [https://youtu.be/bs1-Wxb_KIc](https://youtu.be/bs1-Wxb_KIc)
+
+Se você usa Windows
+- No Windows é possível utilizar o wsl2 e instalar uma versão do linux para 
+acompanhar. Eu fiz alguns vídeos para você usar o Linux no Windows. 
+Primeiro, siga este vídeo para ativar o WSL2 [https://youtu.be/05YN8F8ajBc](https://youtu.be/05YN8F8ajBc); depois, configure seu terminal com ZSH com este outro vídeo [https://youtu.be/y-w-gamp4U0](https://youtu.be/y-w-gamp4U0).  
+
+GUI vs CLI  
+- GUI - Graphical User Interface  
+- CLI - Command Line Interface  
+
+Comandos mais básicos e muito usados
+
+Privilégios do usuário
+
+- `sudo` - Permite executar programas c/ privilégios de outro usuário - por padrão,
+  como o root). `sudo` significa "substitute user do" (usuário 
+  substituto faça)  
+  
+Vídeo sobre su, sudo e sudoers. Nesse vídeo eu detalho mais sobre o comando su, sudo e o arquivo sudoers: [https://youtu.be/aTbEhjvlmxg](https://youtu.be/aTbEhjvlmxg)
+
+Navegação
+
+- `pwd` - print working directory (mostra o caminho do diretório atual)  
+- `ls` - lista tudo no diretório atual  
+  - `-a` - inclui entradas que o nome começa com ponto (arquivos ou diretórios ocultos)  
+  - `-l` - lista em formato longo  
+  - `-h` - com -l, é um sufixo de tamanho para facilitar a leitura   
+  - `-@` - mostra atributos estendidos  
+
+Vídeo sobre permissões no Linux. Isso vai te ajudar a entender melhor como o sistema de Usuários, grupos e permissões no Linux (Ubuntu):[https://youtu.be/S2h92LNcEz8](https://youtu.be/S2h92LNcEz8)
+
+Mais comandos:
+
+- `cd` - change directory
+  - `.` - diretório atual
+  - `..` - diretório acima
+  - `/` - o diretório root ou a separação de diretórios
+  - `~` - home (cd sem nada vai para a home)
+  - `-` menos - volta para o diretório que anterior  
+- `tree` - mostra a árvore do diretório atual  
+  - `-d` - diretórios  
+  - `-a` - mostra arquivos ocultos  
+- `cat` - concatena e/ou mostra o conteúdo de um arquivo  
+  - `-n` - enumera as linhas
+- `tail` - lista as últimas linhas do arquivo  
+  - `-NÚMERO` - mostra a quantidade de linhas que for adicionado em `NÚMERO`.
+  - `-f` - continua assistindo o arquivo em busca de novos dados.  
+- `wc` - conta linhas, palavras e caracteres
+  - `-l` - linhas
+  - `-m` - caracteres
+  - `-w` - palavras
+
+Manipulando arquivos e diretórios
+
+- `cp` - copia arquivos ou diretórios  
+  - `-R` - copia o diretório em modo recursivo  
+  <sub><sup>**Obs.:** Segundo o `man` (manual) do `cp`, se tiver uma barra (/) no final do diretório original, `cp` pode copiar apenas o conteúdo do diretório e não o diretório em si (eu não vi isso ocorrer em testes).</sup></sub>  
+- `mv` - move arquivos ou diretórios (com mv você pode renomear arquivos ou diretórios)  
+- `mkdir` - cria um diretório (use aspas ou barra invertida para separar caracteres inválidos)  
+  - `-p` - cria uma estrutura inteira sem gerar erros  
+  <sub><sup>Obs.: você pode usar chaves para criar múltiplos sub-diretórios.</sup></sub>  
+- `rm` - apaga arquivos e diretórios  
+  - `-R` - modo recursivo para diretórios  
+  - `-f` - modo forçado e silencioso  
+- `touch` - muda os tempos de acesso e modificação de um arquivo. Grande parte dos casos, usamos este comando para criar um arquivo vazio.  
+
+Alguns símbolos e operadores úteis
+
+- `;` - permite executar vários comandos na mesma linha. Roda todos os comandos, mesmo se ocorrer algum erro.
+- `&&` - permite executar vários comandos na mesma linha. Se o comando anterior não gerar nenhum erro, continua a corrente de comandos, do contrário, para no momento que ocorrer um erro.  
+- `||` - permite executar vários comandos na mesma linha. Ele funciona de maneira oposta ao anterior, ou seja, se ocorrer algum erro no comando anterior, executa o próximo comando, do contrário, para no primeiro comando que **NÃO** gerar um erro.  
+- `|` - Joga a saída (output) de um comando para a entrada (input) de outro.
+- `>` - Joga a saída de um comando e redireciona para um arquivo. Apaga o arquivo todo e substitui seu conteúdo.
+- `>>` - Joga a saída de um comando e redireciona para um arquivo. Não apaga o que estiver no arquivo, apenas adiciona o novo conteúdo na última linha.
+- `&` - Joga para o background. Veja `jobs` e `fg` para complementar
+
+Background e Foreground
+
+- `jobs` - mostra trabalhos em execução  
+- `fg %n` - leva o que estiver em background para o foreground  
+- `bg %n` - continua um job em background  
+- `kill %n` - mata um job
+
+Outros comandos
+- `nano` - editor de textos  
+- `file` - mostra o tipo do arquivo  
+- `history` - histórico de comandos já digitados  
+- `pkill` - mata processos
+- `whoami` - mostra seu usuário
+- `hostname` - mostra o nome do seu computador
+- `uname` - mostra dados sobre o sistema
+- `ps aux` - mostra todos os processos rodando no sistema no momento da execução
