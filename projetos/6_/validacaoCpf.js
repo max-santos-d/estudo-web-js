@@ -1,49 +1,54 @@
-// 705.484.450-52 070.987.720-03
-/*
-7x 0x 5x 4x 8x 4x 4x 5x 0x
-10 9  8  7  6  5  4  3  2
-70 0  40 28 48 20 16 15 0 = 237
+// CPF válidos: 705.484.450-52 - 070.987.720-03
 
-11 - (237 % 11) = 5 (Primeiro dígito)
-Se o número digito for maior que 9, consideramos 0.
+function CPFValidator(cpf) {
+    this.cpf = cpf;
 
-7x 0x 5x 4x 8x 4x 4x 5x 0x 5x
-11 10 9  8  7  6  5  4  3  2
-77 0  45 32 56 24 20 20 0  10 = 284
+    this.init = () => {
+        const cleanCPF = this.cleanCPF(cpf);
+        const validCPF = this.validCpfGenerated(cleanCPF);
+        const confirm = this.confirmCPF(validCPF, cleanCPF);
 
-11 - (284 % 11) = 2 (Segundo dígito)
-Se o número digito for maior que 9, consideramos 0.
-*/
+        console.log(confirm ? 'CPF Válido' : 'CPF Inválido');
+    }
 
-const cpf = '705.484.450-52';
-const cpfLimpo = cpf.replace(/\D+/g, ''); // Removendo os caractéres que não forem números
-const cpfArray = Array.from(cpfLimpo).slice(0, -2);
+    this.validCpfGenerated = (cleanCPF) => {
+        const arrayCPF = this.transformedArray(cleanCPF);
+        const calcDigit1 = this.calcCPF(arrayCPF);
+        const digit1 = this.digitCalc(calcDigit1);
 
-const reduce = (cpfArray) => {
-    const result = cpfArray.reduce((accumulator, value, index, array) => {
-        const lengthArray = (array.length + 1) - index;
-        accumulator += value * lengthArray;
-        return Number(accumulator);
-    }, 0);
+        this.addDigit(arrayCPF, String(digit1))
 
-    return result;
+        const calcDigit2 = this.calcCPF(arrayCPF);
+        const digit2 = this.digitCalc(calcDigit2);
+        this.addDigit(arrayCPF, String(digit2))
+
+        const newCpf = this.generateCPF(arrayCPF);
+        return newCpf;
+    }
+
+    this.cleanCPF = (cpf) => cpf.replace(/\D+/g, ''); // Removendo os caractéres que não forem números
+    this.transformedArray = (cleanCPF) => Array.from(cleanCPF).slice(0, -2);
+    this.addDigit = (array, digit) => array.push(digit);
+    this.generateCPF = (array) => array.join('');
+    this.confirmCPF = (validCPF, cpf) => validCPF !== '11111111' && validCPF !== '99999999' && validCPF === cpf;
+
+    this.digitCalc = (result) => {
+        const calculatedDigit = 11 - (result % 11);
+        return (calculatedDigit <= 9) ? calculatedDigit : 0;
+    }
+
+    this.calcCPF = (cpfArray) => {
+        const result = cpfArray.reduce((accumulator, value, index, array) => {
+            const lengthArray = (array.length + 1) - index;
+            accumulator += value * lengthArray;
+            return Number(accumulator);
+        }, 0);
+
+        return result;
+    };
 };
 
-const digitCalc = (result) => {
-    const calculatedDigit = 11 - (result % 11);
-    return (calculatedDigit <= 9) ? calculatedDigit : 0;
-}
+const cpf = '705.484.450-52';
 
-const addDigit = (array, digit) => array.push(digit);
-const generateCpf = (array) => array.join('');
-const confirmCpf = (calcCpf, cpf) => calcCpf !== '11111111' && calcCpf !== '99999999' && calcCpf === cpf;
-
-const calcDigit1 = reduce(cpfArray);
-const digit1 = digitCalc(calcDigit1);
-addDigit(cpfArray, String(digit1))
-const calcDigit2 = reduce(cpfArray);
-const digit2 = digitCalc(calcDigit2);
-addDigit(cpfArray, String(digit2))
-const newCpf = generateCpf(cpfArray);
-
-console.log(confirmCpf(newCpf, cpfLimpo));
+const cpfValidator = new CPFValidator(cpf);
+cpfValidator.init();
