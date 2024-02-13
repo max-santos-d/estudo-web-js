@@ -1087,16 +1087,16 @@ Observações:
 
 ## Exercício 01 - cálculo de IMC
 
-O pequeno projeto em HTML, CSS e JAVASCRIPT pode ser encontrado em `./3_/Exercicio1_projeto-imc` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/3_/Exercicio1_projeto-imc). Esse projeto tem como foco a utilização de conhecimentos básicos sobre essas tecnológias, integrando funções do javascript para criaçõ de lógica e manipulação de uma página html e css.
+O pequeno projeto em HTML, CSS e JAVASCRIPT pode ser encontrado em `projetos/3_/Exercicio1_projeto-imc` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/3_/Exercicio1_projeto-imc). Esse projeto tem como foco a utilização de conhecimentos básicos sobre essas tecnológias, integrando funções do javascript para criaçõ de lógica e manipulação de uma página html e css.
 
 ## Exercício 02 - lógica de programação
 
-São resolvidas pequenas questôes relacionadas a logica de programação, utilizando recursos do JavaScript. A pasta e documento referente ao exercício pode ser encontrado em `./3_/Exercicio2_logica-de-programacao/exercicios.js` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/3_/Exercicio2_logica-de-programacao).
+São resolvidas pequenas questôes relacionadas a logica de programação, utilizando recursos do JavaScript. A pasta e documento referente ao exercício pode ser encontrado em `projetos/3_/Exercicio2_logica-de-programacao/exercicios.js` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/3_/Exercicio2_logica-de-programacao).
 
 ## Exercício 03 - Criando um timer com setInterval
 
-O pequeno projeto envolve as tecnologias do HTML, CSS e JAVASCRIPT para desenvolver um projeto em que, através de botões, pode-se controlar um timer, podendo inicia-l, pausa-lo e zerar seu valor. A pasta referente ao mini projeto pode ser encontrado em: `./3_/Exercicio3_timer-setInterval` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/3_/Exercicio3_timer-setInterval).
+O pequeno projeto envolve as tecnologias do HTML, CSS e JAVASCRIPT para desenvolver um projeto em que, através de botões, pode-se controlar um timer, podendo inicia-l, pausa-lo e zerar seu valor. A pasta referente ao mini projeto pode ser encontrado em: `projetos/3_/Exercicio3_timer-setInterval` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/3_/Exercicio3_timer-setInterval).
 
 ## Exercício 04 - Criando uma lista de tarefas
 
-O pequeno projeto envolve tecnologias como o HTML, CSS e o JAVASCRIPT para o desenvolvimento de uma aplicação para criação de tarefas, com funcionalidade de salvamento no localStorage. A pasta referente ao mini projeto pode ser encontrado em: `./3_/Exercicio4_lista-de-tarefas` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/3_/Exercicio4_lista-de-tarefas).
+O pequeno projeto envolve tecnologias como o HTML, CSS e o JAVASCRIPT para o desenvolvimento de uma aplicação para criação de tarefas, com funcionalidade de salvamento no localStorage. A pasta referente ao mini projeto pode ser encontrado em: `projetos/3_/Exercicio4_lista-de-tarefas` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/3_/Exercicio4_lista-de-tarefas).
