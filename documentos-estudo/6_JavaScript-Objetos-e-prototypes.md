@@ -5,16 +5,33 @@
 - [JavaScript Objetos e prototypes (avançado)](#javascript-objetos-e-prototypes-avançado)
   - [Revisando Objetos em JavaScript](#revisando-objetos-em-javascript)
   - [Object.defineProperty() e Object.defineProperties()](#objectdefineproperty-e-objectdefineproperties)
+    - [`Object.defineProperty()`](#objectdefineproperty)
+    - [`Object.defineProperties()`](#objectdefineproperties)
   - [Getters e Setters em JavaScript](#getters-e-setters-em-javascript)
-    - [Getters e Setters em JavaScript com Object.defineProperty dentro de uma Factory Function](#getters-e-setters-em-javascript-com-objectdefineproperty-dentro-de-uma-factory-function)
+  - [Getters e Setters em JavaScript com Factory Function](#getters-e-setters-em-javascript-com-factory-function)
     - [Getters e Setters em JavaScript com Object.defineProperty dentro de uma Função Construtora](#getters-e-setters-em-javascript-com-objectdefineproperty-dentro-de-uma-função-construtora)
   - [Métodos úteis para objetos](#métodos-úteis-para-objetos)
+    - [Object.values](#objectvalues)
+    - [Object.entries](#objectentries)
+    - [Object.assign(dest, any)](#objectassigndest-any)
+    - [Object.getOwnPropertyDescriptor(o, 'prop')](#objectgetownpropertydescriptoro-prop)
+    - [Spread Operator (...) em JavaScript](#spread-operator--em-javascript)
   - [Prototypes em JavaScript](#prototypes-em-javascript)
   - [Manipulando Prototypes](#manipulando-prototypes)
+    - [Adicionando Propriedades e Métodos ao Prototype](#adicionando-propriedades-e-métodos-ao-prototype)
+    - [Substituindo o Prototype](#substituindo-o-prototype)
+    - [Acessando o Prototype de um Objeto](#acessando-o-prototype-de-um-objeto)
+    - [Verificando a Origem de uma Propriedade](#verificando-a-origem-de-uma-propriedade)
+    - [Object.create()](#objectcreate)
+    - [Object.getPrototypeOf()](#objectgetprototypeof)
+    - [Object.setPrototypeOf()](#objectsetprototypeof)
   - [Herança](#herança)
+    - [Protótipos e Herança](#protótipos-e-herança)
   - [Prototypes + Herança](#prototypes--herança)
   - [Polimorfismo em JavaScript com Constructor Functions](#polimorfismo-em-javascript-com-constructor-functions)
+    - [Funcionamento do Polimorfismo](#funcionamento-do-polimorfismo)
   - [Factory Functions + Prototypes em JavaScript](#factory-functions--prototypes-em-javascript)
+    - [Funcionamento das Factory Functions + Prototypes](#funcionamento-das-factory-functions--prototypes)
   - [Objeto Map()](#objeto-map)
   - [Exercicio - Validação de CPF](#exercicio---validação-de-cpf)
 
@@ -166,7 +183,7 @@ Esta revisão cobre os principais tópicos relacionados a objetos em JavaScript,
 
 ## Object.defineProperty() e Object.defineProperties()
 
-`Object.defineProperty()`
+### `Object.defineProperty()`
 
 O método `Object.defineProperty()` é uma função embutida em JavaScript que permite definir uma nova propriedade diretamente em um objeto ou modificar uma propriedade existente em um objeto. Ele fornece controle detalhado sobre as características da propriedade, como valor, enumerabilidade, gravabilidade e configurabilidade.
 
@@ -199,7 +216,7 @@ Object.defineProperty(pessoa, 'nome', {
 });
 ~~~
 
-`Object.defineProperties()`
+### `Object.defineProperties()`
 
 O método `Object.defineProperties()` é semelhante ao `Object.defineProperty()`, mas permite definir várias propriedades diretamente em um objeto ou modificar várias propriedades existentes em um objeto de uma só vez.
 
@@ -280,7 +297,7 @@ Estas são funções essenciais para definir e configurar propriedades de objeto
 
 ## Getters e Setters em JavaScript
 
-### Getters e Setters em JavaScript com Object.defineProperty dentro de uma Factory Function
+## Getters e Setters em JavaScript com Factory Function
 
 Introdução
 
@@ -383,7 +400,7 @@ Este exemplo demonstra como utilizar getters e setters com `Object.definePropert
 
 ## Métodos úteis para objetos
 
-Object.values
+### Object.values
 
 - O método `Object.values()` é uma função embutida em JavaScript que retorna um array contendo os valores das propriedades enumeráveis de um objeto, na mesma ordem que seria obtida ao iterar sobre as propriedades do objeto manualmente.
 
@@ -394,7 +411,7 @@ const objeto = { a: 1, b: 2, c: 3 };
 console.log(Object.values(objeto)); // Saída: [1, 2, 3]
 ~~~
 
-Object.entries
+### Object.entries
 
 - O método `Object.entries()` é uma função embutida em JavaScript que retorna um array contendo pares `[chave, valor]` para cada propriedade enumerável de um objeto, na mesma ordem que seria obtida ao iterar sobre as propriedades do objeto manualmente.
 
@@ -405,7 +422,7 @@ const objeto = { a: 1, b: 2, c: 3 };
 console.log(Object.entries(objeto)); // Saída: [['a', 1], ['b', 2], ['c', 3]]
 ~~~
 
-Object.assign(dest, any)
+### Object.assign(dest, any)
 
 - O método `Object.assign()` é uma função embutida em JavaScript que é usada para copiar os valores de todas as propriedades enumeráveis de um ou mais objetos de origem (`any`) para um objeto de destino (`dest`). Retorna o objeto de destino.
 
@@ -418,7 +435,7 @@ Object.assign(destino, origem);
 console.log(destino); // Saída: { a: 1, b: 2, c: 3 }
 ~~~
 
-Object.getOwnPropertyDescriptor(o, 'prop')
+### Object.getOwnPropertyDescriptor(o, 'prop')
 
 - O método `Object.getOwnPropertyDescriptor()` é uma função embutida em JavaScript que retorna um descritor de propriedade para uma propriedade específica (`'prop'`) de um objeto (`o`). O descritor de propriedade contém informações sobre a propriedade, como valor, gravabilidade, enumerabilidade e configurabilidade.
 
@@ -430,7 +447,7 @@ console.log(Object.getOwnPropertyDescriptor(objeto, 'a'));
 // Saída: { value: 1, writable: true, enumerable: true, configurable: true }
 ~~~
 
-Spread Operator (...)
+### Spread Operator (...) em JavaScript
 
 O operador de propagação, ou spread operator (`...`), é um recurso introduzido no ECMAScript 6 (ES6) que permite expandir uma expressão em locais onde múltiplos argumentos (para chamadas de função) ou múltiplos elementos (para arrays) são esperados. Ele permite copiar elementos de arrays e objetos em novos arrays e objetos ou combinar múltiplos arrays e objetos.
 
@@ -495,7 +512,7 @@ Esta explicação fornece uma visão geral abrangente dos protótipos em JavaScr
 
 Manipular protótipos em JavaScript é uma prática comum para estender funcionalidades de objetos existentes ou para definir métodos e propriedades compartilhadas entre várias instâncias de objetos. Aqui estão algumas maneiras de manipular protótipos:
 
-Adicionando Propriedades e Métodos ao Protótipo
+### Adicionando Propriedades e Métodos ao Prototype
 
 Você pode adicionar propriedades e métodos ao protótipo de um construtor de objeto usando a propriedade prototype. Isso permite que todas as instâncias desse objeto compartilhem essas propriedades e métodos.
 
@@ -515,7 +532,7 @@ const animal1 = new Animal('Leão');
 animal1.emitirSom(); // Saída: Som indefinido
 ~~~
 
-Substituindo o Protótipo
+### Substituindo o Prototype
 
 Você pode substituir completamente o protótipo de um objeto por outro objeto. Isso afeta todas as instâncias existentes e futuras desse objeto.
 
@@ -545,7 +562,7 @@ const animal2 = new Animal('Tigre');
 animal2.comer(); // Saída: Comendo...
 ~~~
 
-Acessando o Protótipo de um Objeto
+### Acessando o Prototype de um Objeto
 
 Você pode acessar o protótipo de um objeto usando a propriedade `__proto__` ou o método `Object.getPrototypeOf()`.
 
@@ -565,7 +582,7 @@ console.log(animal3.__proto__);
 console.log(Object.getPrototypeOf(animal3));
 ~~~
 
-Verificando a Origem de uma Propriedade
+### Verificando a Origem de uma Propriedade
 
 Você pode verificar se uma propriedade é própria (definida diretamente no objeto) ou herdada do protótipo usando o método `hasOwnProperty()`.
 
@@ -586,7 +603,7 @@ console.log(animal4.hasOwnProperty('nome')); // Saída: true
 console.log(animal4.hasOwnProperty('emitirSom')); // Saída: false
 ~~~
 
-Object.create()
+### Object.create()
 
 O método `Object.create()` é uma função embutida em JavaScript que cria um novo objeto com um protótipo especificado. Ele aceita um objeto protótipo como seu primeiro argumento e opcionalmente um objeto que especifica as propriedades a serem adicionadas ao novo objeto.
 
@@ -605,7 +622,7 @@ const animal = Object.create(animalPrototype);
 animal.emitirSom(); // Saída: Som indefinido
 ~~~
 
-Object.getPrototypeOf()
+### Object.getPrototypeOf()
 
 O método `Object.getPrototypeOf()` é uma função embutida em JavaScript que retorna o protótipo de um objeto especificado.
 
@@ -619,7 +636,7 @@ const prototipo = Object.getPrototypeOf(animal);
 console.log(prototipo === Object.prototype); // Saída: true
 ~~~
 
-Object.setPrototypeOf()
+### Object.setPrototypeOf()
 
 O método `Object.setPrototypeOf()` é uma função embutida em JavaScript que define o protótipo de um objeto especificado para outro protótipo ou `null`.
 
@@ -645,7 +662,7 @@ Manipular protótipos é uma técnica poderosa em JavaScript que permite a cria�
 
 Em JavaScript, a herança é implementada usando o mecanismo de protótipos. Isso significa que os objetos podem herdar propriedades e métodos de outros objetos. Aqui está como funciona:
 
-Protótipos e Herança
+### Protótipos e Herança
 
 - Cada objeto em JavaScript tem um protótipo interno, acessado pela propriedade `__proto__`. Esse protótipo é um objeto do qual o objeto atual herda propriedades e métodos.
 
@@ -833,7 +850,7 @@ Estamos, claramente, falando que o `Camiseta.prototype` é um novo objeto vazio 
 
 O polimorfismo é um conceito da programação orientada a objetos que permite que objetos de diferentes classes sejam tratados de maneira uniforme, desde que compartilhem uma mesma interface ou supertipo. Em JavaScript, o polimorfismo pode ser implementado usando constructor functions e protótipos.
 
-Funcionamento do Polimorfismo
+### Funcionamento do Polimorfismo
 
 - Em JavaScript, o polimorfismo é alcançado quando diferentes constructor functions implementam métodos com o mesmo nome e assinatura.
 - Esses métodos podem ter comportamentos diferentes em cada constructor function, mas podem ser chamados de forma uniforme em objetos de diferentes classes.
@@ -937,7 +954,7 @@ Neste exemplo, temos uma `ContaBancaria` que possui funcionalidades básicas de 
 
 As factory functions são funções em JavaScript que retornam um novo objeto. Quando combinadas com protótipos, elas oferecem uma maneira eficiente de criar objetos com métodos compartilhados e herdados. Vamos explorar como isso funciona:
 
-Funcionamento das Factory Functions + Prototypes
+### Funcionamento das Factory Functions + Prototypes
 
 - As factory functions são usadas para criar objetos em JavaScript.
 - Quando combinadas com protótipos, é possível adicionar métodos compartilhados a todos os objetos criados por uma factory function.

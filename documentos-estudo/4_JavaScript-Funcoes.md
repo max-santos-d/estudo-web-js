@@ -5,13 +5,36 @@
 - [JavaScript Funções (avançado)](#javascript-funções-avançado)
   - [Maneiras de Declarar Funções em JavaScript](#maneiras-de-declarar-funções-em-javascript)
   - [Parâmetros da Função em JavaScript](#parâmetros-da-função-em-javascript)
+    - [Sintaxe (Parâmetros da Função)](#sintaxe-parâmetros-da-função)
+    - [Uso (Parâmetros da Função)](#uso-parâmetros-da-função)
+    - [Passagem de Parâmetros](#passagem-de-parâmetros)
+    - [Valor Padrão (Default Parameters)](#valor-padrão-default-parameters)
+    - [Arguments Object](#arguments-object)
+    - [Rest Parameters](#rest-parameters)
   - [Retorno da Função em JavaScript](#retorno-da-função-em-javascript)
+    - [Sintaxe (Retorno da Função)](#sintaxe-retorno-da-função)
   - [Escopo Léxico em JavaScript](#escopo-léxico-em-javascript)
   - [Closures em JavaScript](#closures-em-javascript)
   - [Funções de Callback em JavaScript](#funções-de-callback-em-javascript)
+    - [Características Principais](#características-principais)
+    - [Utilização Comum](#utilização-comum)
+    - [Callbacks Anônimas](#callbacks-anônimas)
+    - [Tratamento de Erros com Callbacks](#tratamento-de-erros-com-callbacks)
   - [Funções Imediatamente Invocadas (IIFE) em JavaScript](#funções-imediatamente-invocadas-iife-em-javascript)
+    - [Características Principais (IIFE)](#características-principais-iife)
+    - [Sintaxe (IIFE)](#sintaxe-iife)
+    - [Utilização Comum (IIFE)](#utilização-comum-iife)
+    - [Passagem de Parâmetros (IIFE)](#passagem-de-parâmetros-iife)
   - [Funções de Fábrica (Factory Functions) em JavaScript](#funções-de-fábrica-factory-functions-em-javascript)
+    - [Características Principais (Factory Functions)](#características-principais-factory-functions)
+    - [Sintaxe (Factory Functions)](#sintaxe-factory-functions)
+    - [Utilização Comum (Factory Functions)](#utilização-comum-factory-functions)
+    - [Vantagens das Factory Functions](#vantagens-das-factory-functions)
   - [Funções Construtoras (Constructor Functions) em JavaScript](#funções-construtoras-constructor-functions-em-javascript)
+    - [Características Principais (Constructor Functions)](#características-principais-constructor-functions)
+    - [Sintaxe (Constructor Functions)](#sintaxe-constructor-functions)
+    - [Utilização Comum (Constructor Functions)](#utilização-comum-constructor-functions)
+    - [Vantagens das Constructor Functions](#vantagens-das-constructor-functions)
   - [Factory Functions vs Constructor Functions](#factory-functions-vs-constructor-functions)
   - [Funções Recursivas em JavaScript](#funções-recursivas-em-javascript)
   - [Funções Geradoras em JavaScript](#funções-geradoras-em-javascript)
@@ -114,7 +137,8 @@ As diferentes maneiras de declarar funções em JavaScript oferecem flexibilidad
 
 Os parâmetros de uma função em JavaScript são variáveis ​​especiais utilizadas para receber valores passados durante a chamada da função. Eles permitem que uma função seja flexível e reutilizável, manipulando diferentes valores de entrada.
 
-Sintaxe:
+### Sintaxe (Parâmetros da Função)
+
 Os parâmetros de uma função são especificados entre parênteses na definição da função, separados por vírgulas.
 
 ~~~javascript
@@ -125,12 +149,13 @@ function minhaFuncao(parametro1, parametro2) {
 }
 ~~~
 
-Uso:
+### Uso (Parâmetros da Função)
 
 - Os parâmetros são utilizados dentro do corpo da função como variáveis locais, representando os valores passados durante a chamada da função.
 - Eles podem ser utilizados para realizar cálculos, operações ou manipulações dentro da função.
 
-Passagem de Parâmetros:
+### Passagem de Parâmetros
+
 Ao chamar uma função, os valores passados como argumentos são atribuídos aos parâmetros correspondentes na definição da função.
 
 ~~~javascript
@@ -139,7 +164,8 @@ Ao chamar uma função, os valores passados como argumentos são atribuídos aos
 minhaFuncao(valor1, valor2);
 ~~~
 
-Valor Padrão (Default Parameters):
+### Valor Padrão (Default Parameters)
+
 No ES6 e posterior, é possível definir valores padrão para parâmetros de função, que serão utilizados caso nenhum valor seja passado durante a chamada da função.
 
 ~~~javascript
@@ -150,7 +176,8 @@ function minhaFuncao(parametro1 = valorPadrao) {
 }
 ~~~
 
-Arguments Object:
+### Arguments Object
+
 JavaScript fornece um objeto chamado arguments, que permite acessar todos os argumentos passados para uma função, independentemente do número de parâmetros definidos na função.
 
 ~~~javascript
@@ -163,7 +190,8 @@ function minhaFuncao() {
 minhaFuncao(1, 2, 3); // Saída: [1, 2, 3]
 ~~~
 
-Rest Parameters:
+### Rest Parameters
+
 No ES6 e posterior, é possível definir um número variável de parâmetros usando a sintaxe de rest parameters (...). Isso permite que uma função receba um número arbitrário de argumentos, que são agrupados em um array dentro da função.
 
 ~~~javascript
@@ -180,7 +208,8 @@ minhaFuncao(1, 2, 3); // Saída: [1, 2, 3]
 
 O retorno da função em JavaScript refere-se ao valor que uma função retorna após a sua execução. Ele permite que uma função produza um resultado que pode ser utilizado em outras partes do código.
 
-Sintaxe:
+### Sintaxe (Retorno da Função)
+
 O retorno de uma função é definido pela palavra-chave `return`, seguida pelo valor que se deseja retornar.
 
 ~~~javascript
@@ -249,7 +278,7 @@ function verificarIdade(idade) {
 
 O escopo léxico é o princípio que determina como as variáveis são acessadas e resolvidas em uma linguagem de programação, incluindo JavaScript. Em JavaScript, o escopo léxico significa que o escopo de uma variável é definido pelo local onde a variável é declarada fisicamente no código-fonte.
 
-Características Principais:
+Características Principais
 
 1. **Escopo Aninhado:** Em JavaScript, as funções podem ser definidas dentro de outras funções, resultando em escopos aninhados. As funções internas têm acesso às variáveis da função externa, mas não o contrário.
 2. **Cadeia de Escopo:** Quando uma variável é referenciada em um determinado ponto do código, o interpretador JavaScript procura primeiro no escopo local, depois no escopo imediatamente superior e assim por diante até encontrar a variável ou chegar ao escopo global.
@@ -313,7 +342,7 @@ As closures em JavaScript são uma característica poderosa que permite criar fu
 
 As funções de callback são um conceito importante em JavaScript, onde uma função é passada como argumento para outra função e é executada posteriormente, geralmente em resposta a um evento ou após a conclusão de uma operação assíncrona.
 
-Características Principais:
+### Características Principais
 
 1. **Passadas como Argumentos:** As funções de callback são passadas como argumentos para outras funções.
 2. **Executadas Assincronamente:** As funções de callback são executadas posteriormente, muitas vezes em resposta a eventos ou após a conclusão de operações assíncronas.
@@ -338,7 +367,7 @@ fazerAlgo(minhaCallback);
 
 Neste exemplo, a função `fazerAlgo` recebe a função `minhaCallback` como argumento e a executa posteriormente, resultando na saída "A função de callback foi executada!".
 
-Utilização Comum:
+### Utilização Comum
 
 - As funções de callback são comumente utilizadas em operações assíncronas, como requisições AJAX, leitura de arquivos, temporizadores, entre outros.
 - Elas são úteis para executar código após a conclusão de uma operação assíncrona, sem bloquear a execução do programa.
@@ -346,7 +375,7 @@ Callbacks Anônimas:
 
 Além de passar funções nomeadas como callbacks, também é comum utilizar funções anônimas diretamente como callbacks, especialmente para operações simples.
 
-Callbacks Anônimas:
+### Callbacks Anônimas
 
 - Além de passar funções nomeadas como callbacks, também é comum utilizar funções anônimas diretamente como callbacks, especialmente para operações simples.
 
@@ -358,7 +387,7 @@ fazerAlgo(function() {
 });
 ~~~
 
-Tratamento de Erros com Callbacks:
+### Tratamento de Erros com Callbacks
 
 - As funções de callback também podem ser utilizadas para tratar erros em operações assíncronas, permitindo que o código de erro seja passado como argumento para a função de callback.
 
@@ -380,13 +409,13 @@ As funções de callback em JavaScript são uma ferramenta poderosa para lidar c
 
 As funções imediatamente invocadas (IIFE) são funções que são definidas e executadas imediatamente após sua criação. Elas são frequentemente utilizadas para criar escopos isolados e evitar a poluição do escopo global.
 
-Características Principais:
+### Características Principais (IIFE)
 
 1. **Autoexecução:** As IIFE são executadas automaticamente após sua definição.
 2. **Escopo Isolado:** Elas criam um escopo local isolado, onde as variáveis e funções definidas dentro da IIFE não entram em conflito com as do escopo global.
 3. **Encapsulamento:** Permitem encapsular o código e variáveis, protegendo-os de interferências externas.
 
-Sintaxe:
+### Sintaxe (IIFE)
 
 A sintaxe básica de uma IIFE é envolver a declaração da função entre parênteses e, em seguida, imediatamente invocá-la adicionando parênteses adicionais no final.
 
@@ -398,7 +427,7 @@ A sintaxe básica de uma IIFE é envolver a declaração da função entre parê
 })();
 ~~~
 
-Utilização Comum:
+### Utilização Comum (IIFE)
 
 - Isolar variáveis e funções para evitar poluição do escopo global.
 - Criar módulos e bibliotecas independentes.
@@ -418,7 +447,7 @@ Exemplo de IIFE em JavaScript:
 
 Neste exemplo, a IIFE cria um escopo isolado onde a variável `mensagem` é declarada. Ela não é acessível fora da IIFE, evitando poluição do escopo global.
 
-Passagem de Parâmetros:
+### Passagem de Parâmetros (IIFE)
 
 É possível passar parâmetros para uma IIFE da mesma forma que para uma função regular.
 
@@ -438,13 +467,14 @@ As funções imediatamente invocadas são uma técnica útil em JavaScript para 
 
 As funções de fábrica (ou factory functions) são funções que retornam objetos novos sempre que são invocadas. Elas são usadas para criar e retornar instâncias de objetos de forma flexível e dinâmica.
 
-Características Principais:
+### Características Principais (Factory Functions)
 
 1. **Retorno de Objetos:** Factory functions retornam novos objetos sempre que são chamadas.
 2. **Personalização de Objetos:** Permitem personalizar as propriedades e comportamentos dos objetos retornados com base nos argumentos passados.
 3. **Encapsulamento:** Podem encapsular detalhes de implementação e ocultar a complexidade da criação de objetos.
 
-Sintaxe:
+### Sintaxe (Factory Functions)
+
 A sintaxe básica de uma factory function é semelhante à de uma função regular, mas em vez de usar a palavra-chave `return` para retornar um valor específico, ela retorna um objeto.
 
 ~~~javascript
@@ -467,13 +497,13 @@ pessoa1.saudacao(); // Saída: "Olá, meu nome é Alice e tenho 30 anos."
 pessoa2.saudacao(); // Saída: "Olá, meu nome é Bob e tenho 25 anos."
 ~~~
 
-Utilização Comum:
+### Utilização Comum (Factory Functions)
 
 - Criar múltiplas instâncias de objetos com estruturas similares, sem a necessidade de usar classes.
 - Personalizar as propriedades e comportamentos dos objetos com base nos argumentos passados para a factory function.
 - Encapsular detalhes de implementação e ocultar a complexidade da criação de objetos.
 
-Vantagens das Factory Functions:
+### Vantagens das Factory Functions
 
 - Flexibilidade: Permitem criar objetos de diferentes formas com base nos argumentos passados.
 - Encapsulamento: Podem ocultar a complexidade da criação de objetos e detalhes de implementação.
@@ -485,13 +515,14 @@ As factory functions são uma técnica comum em JavaScript para criar e retornar
 
 As funções construtoras são uma forma de criar objetos em JavaScript, permitindo a definição de um modelo ou tipo de objeto a partir do qual múltiplas instâncias podem ser criadas. Elas são frequentemente usadas junto com a palavra-chave `new` para criar novas instâncias de objetos.
 
-Características Principais:
+### Características Principais (Constructor Functions)
 
 1. **Modelo de Objeto:** As constructor functions servem como um modelo para criar novos objetos com a mesma estrutura.
 2. **Criação de Instâncias:** Permitem criar múltiplas instâncias de objetos com base no modelo definido pela função construtora.
 3. **Utilização do Operador `new`:** São comumente utilizadas com o operador `new` para criar novas instâncias de objetos.
 
-Sintaxe:
+### Sintaxe (Constructor Functions)
+
 A sintaxe básica de uma constructor function é semelhante à de uma função regular, mas geralmente é convencionado começar o nome da função com letra maiúscula para indicar que é uma constructor function.
 
 ~~~javascript
@@ -512,13 +543,13 @@ pessoa1.saudacao(); // Saída: "Olá, meu nome é Alice e tenho 30 anos."
 pessoa2.saudacao(); // Saída: "Olá, meu nome é Bob e tenho 25 anos."
 ~~~
 
-Utilização Comum:
+### Utilização Comum (Constructor Functions)
 
 - Criar múltiplas instâncias de objetos com base em um modelo ou tipo de objeto.
 - Personalizar as propriedades e comportamentos dos objetos criados com base nos argumentos passados para a constructor function.
 - Utilizar o operador new para criar novas instâncias de objetos.
 
-Vantagens das Constructor Functions:
+### Vantagens das Constructor Functions
 
 - Facilitam a criação de múltiplas instâncias de objetos com base em um modelo comum.
 Permitem personalizar as propriedades e comportamentos dos objetos criados de forma dinâmica.

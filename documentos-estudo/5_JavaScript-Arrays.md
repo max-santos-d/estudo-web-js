@@ -4,8 +4,13 @@
 
 - [JavaScript Arrays (avançado)](#javascript-arrays-avançado)
   - [Revisão Arrays em JavaScript](#revisão-arrays-em-javascript)
+    - [Características Principais (Arrays)](#características-principais-arrays)
+    - [Acessando Elementos de um Array](#acessando-elementos-de-um-array)
+    - [Propriedades e Métodos Importantes de Arrays](#propriedades-e-métodos-importantes-de-arrays)
   - [Construtor para Criação de Arrays em JavaScript](#construtor-para-criação-de-arrays-em-javascript)
   - [Atribuições por Referência de Arrays em JavaScript](#atribuições-por-referência-de-arrays-em-javascript)
+    - [Funcionamento Detalhado](#funcionamento-detalhado)
+    - [Precauções e Considerações](#precauções-e-considerações)
   - [Método `slice()` em Arrays em JavaScript](#método-slice-em-arrays-em-javascript)
   - [Método `splice()` em Arrays em JavaScript](#método-splice-em-arrays-em-javascript)
   - [Método `split()` em Strings em JavaScript](#método-split-em-strings-em-javascript)
@@ -13,7 +18,7 @@
   - [Método `concat()` em Arrays em JavaScript](#método-concat-em-arrays-em-javascript)
   - [Spread Operator em JavaScript](#spread-operator-em-javascript)
   - [Método `filter()` em Arrays em JavaScript](#método-filter-em-arrays-em-javascript)
-    - [Filtrando Objetos em JavaScript usando o Método `filter()`](#filtrando-objetos-em-javascript-usando-o-método-filter)
+  - [Método `filter()` em Objetos](#método-filter-em-objetos)
   - [Método `map()` em JavaScript para Arrays e Objetos](#método-map-em-javascript-para-arrays-e-objetos)
   - [Método `reduce()` em JavaScript](#método-reduce-em-javascript)
   - [Filter + Map + Reducer](#filter--map--reducer)
@@ -23,7 +28,7 @@
 
 Os arrays são estruturas de dados fundamentais em JavaScript que permitem armazenar múltiplos valores em uma única variável. Eles são usados para representar coleções de elementos, como números, strings, objetos e até mesmo outras arrays.
 
-Características Principais:
+### Características Principais (Arrays)
 
 1. **Armazenamento de Dados:** Os arrays permitem armazenar múltiplos valores em uma única variável, organizados em uma sequência ordenada.
 2. **Índices Numéricos:** Os elementos de um array são acessados por meio de índices numéricos, começando em 0 para o primeiro elemento.
@@ -40,7 +45,7 @@ const nomes = ['Alice', 'Bob', 'Carol'];
 const misto = [1, 'dois', true, { chave: 'valor' }];
 ~~~
 
-Acessando Elementos de um Array:
+### Acessando Elementos de um Array
 
 Os elementos de um array são acessados usando a notação de colchetes (`[]`) seguida pelo índice do elemento desejado.
 
@@ -52,7 +57,7 @@ console.log(numeros[0]); // Saída: 10
 console.log(numeros[2]); // Saída: 30
 ~~~
 
-Propriedades e Métodos Importantes de Arrays:
+### Propriedades e Métodos Importantes de Arrays
 
 - `length`: Propriedade que retorna o número de elementos em um array.
 - `push()`: Método que adiciona um ou mais elementos ao final de um array.
@@ -74,6 +79,7 @@ Os arrays são uma parte fundamental da linguagem JavaScript, oferecendo uma man
 Em JavaScript, é possível criar arrays e objetos tanto usando a sintaxe literal quanto por meio de construtores embutidos na linguagem. Os construtores são funções pré-definidas que podem ser invocadas com a palavra-chave `new` para criar novas instâncias de arrays ou objetos.
 
 Construtor de Arrays:
+
 O construtor de arrays em JavaScript é a função `Array()`, que pode ser usada para criar um novo array vazio ou preenchido com elementos inicialmente.
 
 Exemplo de Uso do Construtor de Arrays:
@@ -106,7 +112,7 @@ Observações:
 
 Em JavaScript, quando você atribui um array a uma variável, na verdade está atribuindo uma referência ao array, não uma cópia dos valores do array. Isso significa que se você modificar o array através de uma variável, essas modificações serão refletidas em todas as variáveis que compartilham a mesma referência para esse array.
 
-Funcionamento Detalhado:
+### Funcionamento Detalhado
 
 1. **Atribuição de Referência:** Quando um array é atribuído a uma variável, essa variável recebe uma referência para o array, não uma cópia dos valores do array.
 2. **Compartilhamento de Referências:** Se você atribuir o mesmo array a várias variáveis, todas essas variáveis compartilharão a mesma referência para o mesmo array na memória.
@@ -125,7 +131,7 @@ array1.push(4); // Modifica array1
 console.log(array2); // Saída: [1, 2, 3, 4] - Modificações refletidas em array2
 ~~~
 
-Precauções e Considerações:
+### Precauções e Considerações
 
 - Ao trabalhar com atribuições por referência, tenha cuidado ao modificar arrays, pois isso pode afetar inesperadamente outras partes do seu código.
 - Se precisar criar uma cópia independente de um array, você pode usar métodos como `slice()`, `concat()`, ou a sintaxe de espalhamento (`...`) para criar uma cópia dos valores do array em uma nova referência.
@@ -562,7 +568,7 @@ Observações:
 
 O método `filter()` é uma ferramenta poderosa em JavaScript para filtrar elementos de um array com base em critérios específicos, permitindo a criação de novos arrays contendo apenas os elementos desejados.
 
-### Filtrando Objetos em JavaScript usando o Método `filter()`
+## Método `filter()` em Objetos
 
 O método `filter()` em JavaScript pode ser utilizado não apenas para filtrar arrays de valores, mas também para filtrar arrays de objetos com base em critérios específicos. Ele permite criar um novo array contendo apenas os objetos que satisfazem uma determinada condição especificada por uma função de retorno de chamada.
 

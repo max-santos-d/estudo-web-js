@@ -16,20 +16,15 @@
   - [Funcionalidades do `alert`, `confirm` e `prompt` no Navegador](#funcionalidades-do-alert-confirm-e-prompt-no-navegador)
     - [`alert`](#alert)
     - [`confirm`](#confirm)
+    - [`prompt`](#prompt)
   - [Objeto `Math` em JavaScript](#objeto-math-em-javascript)
     - [Utilizações comuns do Objeto Math](#utilizações-comuns-do-objeto-math)
-    - [Exemplo de Utilização](#exemplo-de-utilização)
   - [Const com valores mutáveis](#const-com-valores-mutáveis)
-    - [Exemplos de Const com valores mutáveis](#exemplos-de-const-com-valores-mutáveis)
   - [`Array` em JavaScript](#array-em-javascript)
-    - [Exemplo de `Array` em JavaScript](#exemplo-de-array-em-javascript)
   - [Funções em JavaScript](#funções-em-javascript)
-    - [Exemplo da Utilização de Funções](#exemplo-da-utilização-de-funções)
   - [Objetos em JavaScript](#objetos-em-javascript)
-    - [Exemplo da Utilização de Objetos](#exemplo-da-utilização-de-objetos)
   - [Valores Primitivos e Valores por Referência em JavaScript](#valores-primitivos-e-valores-por-referência-em-javascript)
     - [Valores Primitivos](#valores-primitivos)
-    - [Exemplo da Utilização Valores Primitivos](#exemplo-da-utilização-valores-primitivos)
 
 ## `console.log` em JavaScript?
 
@@ -261,7 +256,7 @@ if (confirm("Tem certeza de que deseja excluir este item?")) {
 }
 ~~~
 
-`prompt`:
+### `prompt`
 
 - **Funcionalidade**: O prompt exibe uma caixa de diálogo com uma mensagem, um campo de entrada e botões de "OK" e "Cancelar".
 - **Utilidade**: É usado para solicitar que o usuário insira alguma informação.
@@ -312,7 +307,7 @@ O objeto `Math` é um objeto embutido em JavaScript que fornece métodos e const
      - `Math.log()`: Retorna o logaritmo natural (base e) de um número.
      - E outros métodos como `log10`, `log2` etc.
 
-### Exemplo de Utilização
+Exemplo de Utilização
 
 ~~~javascript
 // Código JavaScript
@@ -349,7 +344,7 @@ Já quando usamos `const` com valores mutáveis (como arrays e objetos), a vari�
 
 Por este motivo, pode-se usar `const` com objetos mutáveis e ainda assim alterar seus valores internos. A única coisa que não vamos conseguir fazer é reatribuir o valor da variável.
 
-### Exemplos de Const com valores mutáveis
+Exemplos de Const com valores mutáveis
 
 **Isso Pode:**
 
@@ -392,7 +387,7 @@ Utilizações do Array:
 5. **Ordenação e Busca:**
    - Arrays podem ser ordenados usando o método `sort()` e pesquisados usando métodos como `indexOf()` e `includes()`.
 
-### Exemplo de `Array` em JavaScript
+Exemplo de `Array` em JavaScript
 
 ~~~javascript
 // Código JavaScript
@@ -442,7 +437,7 @@ Utilizações das Funções
 5. **Retorno de Valores:**
    - Funções podem retornar valores como resultado da execução, permitindo que você obtenha resultados computados dentro da função para serem usados em outras partes do código.
 
-### Exemplo da Utilização de Funções
+Exemplo da Utilização de Funções
 
 ~~~javascript
 // Código JavaScript
@@ -477,7 +472,7 @@ Utilizações dos Objetos:
 4. **Herança e Polimorfismo:**
    - JavaScript é uma linguagem orientada a objetos prototipada, o que significa que os objetos podem herdar propriedades e métodos de outros objetos protótipos, permitindo a criação de hierarquias de objetos e polimorfismo.
 
-### Exemplo da Utilização de Objetos
+Exemplo da Utilização de Objetos
 
 ~~~javascript
 // Código JavaScript
@@ -519,7 +514,7 @@ Valores por Referência:
 - **Tipos de Valores por Referência:** Os tipos de valores por referência em JavaScript são: objetos, arrays, funções e datas.
 - **Utilização:** Valores por referência são utilizados para armazenar dados mais complexos, como coleções de dados, objetos com propriedades e métodos, ou funções. Eles são copiados por referência, o que significa que a variável armazena uma referência ao objeto na memória, não uma cópia dos dados.
 
-### Exemplo da Utilização Valores Primitivos
+Exemplo da Utilização Valores Primitivos
 
 ~~~javascript
 // Código JavaScript
