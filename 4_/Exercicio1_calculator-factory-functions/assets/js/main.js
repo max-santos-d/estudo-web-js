@@ -16,8 +16,10 @@ function createCalculator() {
         buttonClick() {
             document.addEventListener('click', event => {
                 const element = event.target;
-                if (element.classList.contains('btn-number'))
+                if (element.classList.contains('btn-number')){
                     this.display.value += element.innerText;
+                    this.display.focus();
+                }
                 if (element.classList.contains('btn-del'))
                     this.display.value = this.delete(this.display.value);
                 if (element.classList.contains('btn-clear'))
@@ -28,24 +30,31 @@ function createCalculator() {
         },
 
         result(inputText) {
+            console.log(inputText);
+            console.log(typeof inputText);
             try {
                 const result = eval(inputText);
+                console.log('ok');
                 if (!result) return this.display.value = 'ERRO';
                 this.display.value = String(result);
                 this.display.focus();
-            } catch {
+            } catch (e) {
+                console.log(e);
+                this.display.value = '';
                 this.display.value = 'ERRO';
+                this.display.focus();
             }
         },
 
         delete(inputText) {
             const newText = inputText.slice(0, -1);
+            this.display.focus();
             return newText;
         },
 
         clearInput() {
-            this.display.focus();
             this.display.value = '';
+            this.display.focus();
         }
     };
 };
