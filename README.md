@@ -9,6 +9,6 @@ Repository intended for the study of the JavaScript programming language and the
 4. [JavaScript - Functions](https://github.com/max-santos-d/estudo-web-js/blob/main/documentos-estudo/4_JavaScript-Funcoes.md)
    - [Section projects](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/4_)
 5. [JavaScript - Arrays](https://github.com/max-santos-d/estudo-web-js/blob/main/documentos-estudo/5_JavaScript-Arrays.md)
-6. [JavaScript - Objects and prototypes]([link](https://github.com/max-santos-d/estudo-web-js/blob/main/documentos-estudo/6_JavaScript-Objetos-e-prototypes.md))
+6. [JavaScript - Objects and prototypes](https://github.com/max-santos-d/estudo-web-js/blob/main/documentos-estudo/6_JavaScript-Objetos-e-prototypes.md)
 
 Developing...
