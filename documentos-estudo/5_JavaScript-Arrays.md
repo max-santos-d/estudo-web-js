@@ -13,6 +13,11 @@
   - [Método `concat()` em Arrays em JavaScript](#método-concat-em-arrays-em-javascript)
   - [Spread Operator em JavaScript](#spread-operator-em-javascript)
   - [Método `filter()` em Arrays em JavaScript](#método-filter-em-arrays-em-javascript)
+    - [Filtrando Objetos em JavaScript usando o Método `filter()`](#filtrando-objetos-em-javascript-usando-o-método-filter)
+  - [Método `map()` em JavaScript para Arrays e Objetos](#método-map-em-javascript-para-arrays-e-objetos)
+  - [Método `reduce()` em JavaScript](#método-reduce-em-javascript)
+  - [Filter + Map + Reducer](#filter--map--reducer)
+  - [Método `forEach()` em JavaScript](#método-foreach-em-javascript)
 
 ## Revisão Arrays em JavaScript
 
@@ -556,3 +561,304 @@ Observações:
 - O novo array resultante contém apenas os elementos do array original que passaram no teste especificado.
 
 O método `filter()` é uma ferramenta poderosa em JavaScript para filtrar elementos de um array com base em critérios específicos, permitindo a criação de novos arrays contendo apenas os elementos desejados.
+
+### Filtrando Objetos em JavaScript usando o Método `filter()`
+
+O método `filter()` em JavaScript pode ser utilizado não apenas para filtrar arrays de valores, mas também para filtrar arrays de objetos com base em critérios específicos. Ele permite criar um novo array contendo apenas os objetos que satisfazem uma determinada condição especificada por uma função de retorno de chamada.
+
+Funcionamento:
+
+- Assim como com arrays de valores, o método `filter()` em arrays de objetos itera sobre cada elemento do array original e aplica uma função de retorno de chamada a cada objeto.
+- A função de retorno de chamada é chamada para cada objeto do array e deve retornar `true` se o objeto deve ser incluído no novo array resultante, ou `false` caso contrário.
+- O método `filter()` cria e retorna um novo array contendo apenas os objetos que passaram no teste especificado pela função de retorno de chamada.
+
+Exemplo de Uso:
+
+Considere o seguinte array de objetos representando pessoas:
+
+~~~javascript
+// Código JavaScript
+
+const pessoas = [
+  { nome: "João", idade: 30 },
+  { nome: "Maria", idade: 25 },
+  { nome: "Pedro", idade: 40 }
+];
+~~~
+
+Podemos usar o método filter() para criar um novo array contendo apenas as pessoas com idade superior a 30 anos:
+
+~~~javascript
+// Código JavaScript
+
+const pessoasMaisVelhas = pessoas.filter(pessoa => pessoa.idade > 30);
+console.log(pessoasMaisVelhas);
+// Saída: [
+//   { nome: "Pedro", idade: 40 }
+// ]
+~~~
+
+Assim como a criação de um novo array contendo apenas as pessoas com nome termina com "a":
+
+~~~javascript
+// Código JavaScript
+
+const pessoasMaisVelhas = pessoas.filter(pessoa => pessoa.nome.toLowerCase().endsWith('a'));
+console.log(pessoasMaisVelhas);
+// Saída: [
+//   { nome: "Maria", idade: 25 }
+// ]
+~~~
+
+## Método `map()` em JavaScript para Arrays e Objetos
+
+O método `map()` em JavaScript é uma função versátil que pode ser aplicada tanto a arrays de valores quanto a arrays de objetos. Ele permite iterar sobre os elementos de um array e aplicar uma função de transformação a cada elemento, retornando um novo array contendo os resultados da aplicação da função a cada elemento.
+
+Em Arrays de Valores:
+
+Funcionamento:
+
+- No contexto de arrays de valores, o método `map()` itera sobre cada elemento do array original e aplica uma função de transformação a cada elemento.
+- A função de transformação é chamada para cada elemento do array e retorna o valor a ser incluído no novo array resultante.
+- O método `map()` cria e retorna um novo array contendo os resultados da aplicação da função a cada elemento do array original.
+
+Exemplo de Uso:
+Considere o seguinte array de números:
+
+~~~javascript
+// Código JavaScript
+
+const numeros = [1, 2, 3, 4, 5];
+~~~
+
+Podemos usar o método map() para criar um novo array contendo os números dobrados:
+
+~~~javascript
+// Código JavaScript
+
+const dobrados = numeros.map(numero => numero * 2);
+console.log(dobrados);
+// Saída: [2, 4, 6, 8, 10]
+~~~
+
+Em Arrays de Objetos:
+
+Funcionamento:
+
+- No contexto de arrays de objetos, o método `map()` funciona da mesma forma que em arrays de valores, porém aplicado a cada objeto do array.
+- A função de transformação é chamada para cada objeto do array e retorna o objeto resultante da transformação.
+- O método `map()` cria e retorna um novo array contendo os objetos transformados.
+
+Exemplo de Uso:
+
+Considere o seguinte array de objetos representando pessoas:
+
+~~~javascript
+// Código JavaScript
+
+const pessoas = [
+  { nome: "João", idade: 30 },
+  { nome: "Maria", idade: 25 },
+  { nome: "Pedro", idade: 40 }
+];
+~~~
+
+Podemos usar o método map() para criar um novo array contendo apenas os nomes das pessoas:
+
+~~~javascript
+// Código JavaScript
+
+const nomes = pessoas.map(pessoa => pessoa.nome);
+console.log(nomes);
+// Saída: ["João", "Maria", "Pedro"]
+~~~
+
+Observações:
+
+- A função de transformação passada para o método map() deve retornar o valor ou objeto a ser incluído no novo array resultante.
+- O novo array resultante conterá os resultados da aplicação da função a cada elemento do array original.
+
+O método map() é uma ferramenta poderosa em JavaScript para transformar elementos de arrays de valores ou objetos de forma flexível e eficiente, permitindo a criação de novos arrays com base nos elementos originais.
+
+## Método `reduce()` em JavaScript
+
+O método `reduce()` é uma função embutida em JavaScript que é utilizada para reduzir (ou "agregar") os elementos de um array em um único valor. Ele executa uma função de redução fornecida para cada elemento do array, resultando em um único valor de retorno.
+
+Funcionamento:
+
+- O método `reduce()` itera sobre cada elemento do array e aplica uma função de redução a cada elemento, combinando-os em um único valor.
+- A função de redução (também chamada de "reducer") é chamada para cada elemento do array e acumula um valor enquanto percorre o array.
+- O método `reduce()` aceita um parâmetro adicional opcional, que representa o valor inicial do acumulador. Se nenhum valor inicial for fornecido, o primeiro elemento do array será utilizado como valor inicial do acumulador.
+
+Sintaxe:
+
+~~~javascript
+// Código JavaScript
+
+array.reduce(callback(acumulador, elemento[, índice[, array]])[, valorInicial])
+~~~
+
+Parâmetros:
+
+- `callback`: Uma função que é chamada para cada elemento do array e acumula um valor enquanto percorre o array.
+  - `acumulador`: O valor acumulado ao longo da iteração, atualizado a cada chamada da função de redução.
+  - `elemento`: O valor do elemento atual sendo processado no array.
+índice: O índice do elemento atual sendo processado no array (opcional).
+  - `array`: O array original que está sendo percorrido (opcional).
+- valorInicial: Opcional. Um valor inicial para o acumulador. Se não fornecido, o primeiro elemento do array será utilizado como valor inicial.
+
+Exemplo de Uso:
+
+Considere o seguinte array de números:
+
+~~~javascript
+// Código JavaScript
+
+const numeros = [1, 2, 3, 4, 5];
+~~~
+
+Podemos usar o método `reduce()` para somar todos os números do array:
+
+~~~javascript
+// Código JavaScript
+
+const soma = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+console.log(soma); // Saída: 15 (soma de 1 + 2 + 3 + 4 + 5)
+~~~
+
+Exemplo de como usar o método `reduce()` para retornar apenas os números pares de um array:
+
+~~~javascript
+// Código JavaScript
+
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const numerosPares = numeros.reduce((pares, numero) => {
+    if (numero % 2 === 0) {
+        pares.push(numero);
+    }
+    return pares;
+}, []);
+
+console.log(numerosPares); // Saída: [2, 4, 6, 8, 10]
+~~~
+
+Neste exemplo, estamos usando o `reduce()` para iterar sobre o array de números. A cada iteração, verificamos se o número é par (numero % 2 === 0). Se for par, adicionamos o número ao array pares, que é o acumulador. No final, o `reduce()` retorna o array pares contendo apenas os números pares.
+
+Observações:
+
+- A função de redução passada para o método `reduce()` deve retornar o valor acumulado, que será passado para a próxima iteração como o valor do acumulador.
+- O método `reduce()` é útil para realizar operações de agregação em arrays, como soma, multiplicação, concatenação, entre outras.
+
+O método `reduce()` é uma ferramenta poderosa em JavaScript para reduzir os elementos de um array em um único valor, permitindo a realização de operações de agregação de forma eficiente.
+
+## Filter + Map + Reducer
+
+Abaixo está um exemplo de como você pode usar os métodos filter(), map() e reduce() em conjunto para realizar várias operações em um array:
+
+~~~javascript
+// Código JavaScript
+
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Filtrando apenas os números pares
+const numerosPares = numeros.filter(numero => numero % 2 === 0);
+
+// Mapeando os números pares para seus quadrados
+const quadrados = numerosPares.map(numero => numero ** 2);
+
+// Reduzindo os quadrados para a soma deles
+const somaDosQuadrados = quadrados.reduce((acumulador, numero) => acumulador + numero, 0);
+
+console.log("Números pares:", numerosPares); // Saída: [2, 4, 6, 8, 10]
+console.log("Quadrados:", quadrados); // Saída: [4, 16, 36, 64, 100]
+console.log("Soma dos quadrados:", somaDosQuadrados); // Saída: 220
+~~~
+
+Neste exemplo:
+
+- Usamos `filter()` para filtrar apenas os números pares do array original numeros.
+- Usamos `map()` para mapear cada número par para seu quadrado.
+- Usamos `reduce()` para reduzir os quadrados para a soma deles.
+
+Dessa forma, combinamos os três métodos para realizar diferentes operações em um array de números em JavaScript.
+
+Podemos encadear os métodos `filter()`, `map()` e `reduce()` em sequência para obter o mesmo resultado. Aqui está o código refatorado:
+
+~~~javascript
+// Código JavaScript
+
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const somaDosQuadrados = numeros
+  .filter(numero => numero % 2 === 0) // Filtra apenas os números pares
+  .map(numero => numero ** 2) // Mapeia os números pares para seus quadrados
+  .reduce((acumulador, numero) => acumulador + numero, 0); // Reduz os quadrados para a soma deles
+
+console.log("Soma dos quadrados:", somaDosQuadrados); // Saída: 220
+~~~
+
+## Método `forEach()` em JavaScript
+
+O método `forEach()` é uma função embutida em JavaScript que permite iterar sobre os elementos de um array e executar uma função de retorno de chamada para cada elemento. Ele é útil quando você precisa executar uma operação para cada elemento do array, mas não precisa retornar nenhum valor específico.
+
+Funcionamento:
+
+- O método `forEach()` itera sobre cada elemento do array e executa uma função de retorno de chamada para cada elemento.
+- A função de retorno de chamada é chamada para cada elemento do array, recebendo o elemento atual como argumento, mas não retorna nenhum valor específico.
+- O método `forEach()` não retorna nada (ou retorna `undefined`), pois é utilizado principalmente para efeitos colaterais, como modificar elementos do array ou executar operações secundárias.
+
+Sintaxe:
+
+~~~javascript
+// Código JavaScript
+
+array.forEach(callback(elemento[, índice[, array]])[, thisArg])
+~~~
+
+Parâmetros:
+
+- `callback`: Uma função que é chamada para cada elemento do array.
+  - `elemento`: O valor do elemento atual sendo processado no array.
+  - `índice`: O índice do elemento atual sendo processado no array (opcional).
+  - `array`: O array original que está sendo percorrido (opcional).
+- `thisArg`: Opcional. Um valor a ser usado como `this` ao executar a função de retorno de chamada.
+
+Exemplo de Uso:
+
+~~~javascript
+// Código JavaScript
+
+const numeros = [1, 2, 3, 4, 5];
+
+numeros.forEach(numero => {
+  console.log(numero * 2); // Saída: 2, 4, 6, 8, 10
+});
+~~~
+
+Neste exemplo, usamos `forEach()` para iterar sobre cada elemento do array numeros e imprimir o dobro de cada número.
+
+Outro exemplo de Uso:
+
+~~~javascript
+// Código JavaScript
+
+const numeros = [1, 2, 3, 4, 5];
+let soma = 0;
+
+numeros.forEach(numero => {
+  soma += numero;
+});
+
+console.log("A soma dos números é:", soma); // Saída: A soma dos números é: 15
+~~~
+
+Neste exemplo, usamos `forEach()` para iterar sobre cada elemento do array `numeros`. A cada iteração, adicionamos o número atual à variável `soma`. No final do loop, a variável `soma` conterá a soma de todos os números do array.
+
+Observações:
+
+- O método `forEach()` é útil quando você precisa iterar sobre todos os elementos de um array e executar uma operação para cada um deles.
+- É importante observar que o método `forEach()` não retorna nenhum valor específico, ele é principalmente utilizado para efeitos colaterais.
+- Se você precisa retornar um novo array com base em transformações dos elementos originais, é mais apropriado usar métodos como `map()` ou `filter()`.
+
+O método `forEach()` é uma ferramenta útil em JavaScript para iterar sobre os elementos de um array e executar uma função de retorno de chamada para cada um deles.
