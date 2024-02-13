@@ -4,18 +4,26 @@
 
 - [Configurando o ambiente](#configurando-o-ambiente)
   - [Instalando o Node e VSCode em ambiente linux](#instalando-o-node-e-vscode-em-ambiente-linux)
+    - [Atualize o sistema](#atualize-o-sistema)
+    - [Instale o Node.js usando o NodeSource](#instale-o-nodejs-usando-o-nodesource)
+    - [Verifique a instalação do Node.js](#verifique-a-instalação-do-nodejs)
+    - [Instale o VSCode](#instale-o-vscode)
+    - [Adicionando ao PATH](#adicionando-ao-path)
+    - [(Opcional) Atualize o VSCode regularmente](#opcional-atualize-o-vscode-regularmente)
   - [Git](#git)
     - [Inicializando o Git em um projeto](#inicializando-o-git-em-um-projeto)
     - [Criar um novo repositório no GitHub](#criar-um-novo-repositório-no-github)
     - [Criação de chave SSH para utilização do github](#criação-de-chave-ssh-para-utilização-do-github)
+    - [Adicionar a chave SSH ao GitHub](#adicionar-a-chave-ssh-ao-github)
     - [Comandos git importantes](#comandos-git-importantes)
   - [inicialização do npm](#inicialização-do-npm)
   - [Extenções para o VSCode](#extenções-para-o-vscode)
   - [Comandos terminal](#comandos-terminal)
+    - [Comandos mais básicos e muito usados](#comandos-mais-básicos-e-muito-usados)
 
 ## Instalando o Node e VSCode em ambiente linux
 
-Atualize o sistema:
+### Atualize o sistema
 
 ~~~bash
 # Código Bash
@@ -24,7 +32,7 @@ sudo apt update
 sudo apt upgrade
 ~~~
 
-Instale o Node.js usando o NodeSource:
+### Instale o Node.js usando o NodeSource
 
 ~~~bash
 # Código Bash
@@ -33,7 +41,7 @@ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ~~~
 
-Verifique a instalação do Node.js:
+### Verifique a instalação do Node.js
 
 ~~~bash
 # Código Bash
@@ -42,7 +50,7 @@ node -v
 npm -v
 ~~~
 
-Instale o VSCode:
+### Instale o VSCode
 
 A instalação no Linux é relativamente simples, basta acessar o [site oficial do Visual Studio Code](https://code.visualstudio.com/) e fazer o Download da sua última versão, clicando no botão "Download for Linux".
 
@@ -54,14 +62,15 @@ Como resultado do Download você terá um pacote .deb na pasta Downloads. Abra u
 sudo apt install ./ARQUIVO_BAIXADO.deb
 ~~~
 
-Adicionando ao PATH
+### Adicionando ao PATH
+
 Podemos ainda adicionar o Visual Studio Code ao PATH para ter acesso ao comando code no terminal, podendo abrir diretamente pastas de lá no Visual Studio Code.
 
 Abra seu menu de aplicativos e inicie o Visual Studio Code e na tela inicial dele pressione F1 para abrir a tela de execução de comandos.
 
 Procure pelo comando Shell Command: Install 'code' command in PATH para adicionar o Visual Studio Code ao PATH do seu sistema operacional.
 
-(Opcional) Atualize o VSCode regularmente:
+### (Opcional) Atualize o VSCode regularmente
 
 ~~~bash
 # Código Bash
@@ -99,7 +108,7 @@ Execute o comando `git init` para iniciar um novo repositório Git no diretório
 git init
 ~~~
 
-sso criará um subdiretório oculto chamado `.git` no seu diretório do projeto, onde o Git armazenará metadados e configurações relacionadas ao repositório.
+Isso criará um subdiretório oculto chamado `.git` no seu diretório do projeto, onde o Git armazenará metadados e configurações relacionadas ao repositório.
 
 4 - Configure o nome e o endereço de email do usuário
 
@@ -189,7 +198,7 @@ Copie sua chave ssh.pub ao execultar o comando a seguir:
 cat ~/.ssh/nome-da-chave_rsa.pub
 ~~~
 
-Adicionar a chave SSH ao GitHub
+### Adicionar a chave SSH ao GitHub
 
 - Acesse sua conta GitHub e vá para "Settings" (Configurações).
 - No menu lateral, clique em "SSH and GPG keys" (Chaves SSH e GPG).
@@ -333,7 +342,7 @@ GUI vs CLI
 - GUI - Graphical User Interface  
 - CLI - Command Line Interface  
 
-Comandos mais básicos e muito usados
+### Comandos mais básicos e muito usados
 
 Privilégios do usuário
 

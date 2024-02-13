@@ -10,13 +10,26 @@
   - [Diferença entre `let` e `var` em JavaScript](#diferença-entre-let-e-var-em-javascript)
   - [Tipos de dados primitivos em JavaScript e suas funções](#tipos-de-dados-primitivos-em-javascript-e-suas-funções)
   - [Operadores em JavaScript e sua Utilidade](#operadores-em-javascript-e-sua-utilidade)
+    - [Operadores Aritméticos](#operadores-aritméticos)
+    - [Operadores de Atribuição](#operadores-de-atribuição)
+    - [Operadores de Incremento e Decremento](#operadores-de-incremento-e-decremento)
   - [Funcionalidades do `alert`, `confirm` e `prompt` no Navegador](#funcionalidades-do-alert-confirm-e-prompt-no-navegador)
+    - [`alert`](#alert)
+    - [`confirm`](#confirm)
   - [Objeto `Math` em JavaScript](#objeto-math-em-javascript)
+    - [Utilizações comuns do Objeto Math](#utilizações-comuns-do-objeto-math)
+    - [Exemplo de Utilização](#exemplo-de-utilização)
   - [Const com valores mutáveis](#const-com-valores-mutáveis)
+    - [Exemplos de Const com valores mutáveis](#exemplos-de-const-com-valores-mutáveis)
   - [`Array` em JavaScript](#array-em-javascript)
+    - [Exemplo de `Array` em JavaScript](#exemplo-de-array-em-javascript)
   - [Funções em JavaScript](#funções-em-javascript)
+    - [Exemplo da Utilização de Funções](#exemplo-da-utilização-de-funções)
   - [Objetos em JavaScript](#objetos-em-javascript)
+    - [Exemplo da Utilização de Objetos](#exemplo-da-utilização-de-objetos)
   - [Valores Primitivos e Valores por Referência em JavaScript](#valores-primitivos-e-valores-por-referência-em-javascript)
+    - [Valores Primitivos](#valores-primitivos)
+    - [Exemplo da Utilização Valores Primitivos](#exemplo-da-utilização-valores-primitivos)
 
 ## `console.log` em JavaScript?
 
@@ -175,7 +188,7 @@ Esses tipos de dados primitivos são os blocos fundamentais para representar e m
 
 ## Operadores em JavaScript e sua Utilidade
 
-Operadores Aritméticos:
+### Operadores Aritméticos
 
 1. **Adição (+):** Utilizado para adicionar dois valores.
 2. **Subtração (-):** Utilizado para subtrair um valor de outro.
@@ -185,7 +198,7 @@ Operadores Aritméticos:
 6. **Incremento (++):** Incrementa o valor da variável em 1.
 7. **Decremento (--):** Decrementa o valor da variável em 1.
 
-Operadores de Atribuição:
+### Operadores de Atribuição
 
 1. **Atribuição simples (=):** Atribui o valor à variável.
 2. **Atribuição com Adição (+=):** Adiciona o valor à variável e atribui o resultado.
@@ -195,7 +208,7 @@ Operadores de Atribuição:
 6. **Atribuição com Módulo (%=):** Calcula o módulo do valor da variável e atribui o resultado.
 7. **Atribuição com Concatenação (+=) (em strings):** Concatena o valor à variável e atribui o resultado.
 
-Operadores de Incremento e Decremento:
+### Operadores de Incremento e Decremento
 
 1. **Pré-incremento (++variável):** Incrementa o valor da variável antes de sua utilização.
 2. **Pós-incremento (variável++):** Incrementa o valor da variável após sua utilização.
@@ -219,7 +232,7 @@ Seguir a ordem de precedência dos operadores é fundamental para garantir que a
 
 ## Funcionalidades do `alert`, `confirm` e `prompt` no Navegador
 
-`alert`:
+### `alert`
 
 - **Funcionalidade:** O `alert` exibe uma caixa de diálogo com uma mensagem para o usuário.
 - **Utilidade:** É frequentemente usado para exibir mensagens informativas, avisos ou instruções simples para o usuário.
@@ -231,7 +244,7 @@ Seguir a ordem de precedência dos operadores é fundamental para garantir que a
   alert("Bem-vindo ao nosso site!");
 ~~~
 
-`confirm`:
+### `confirm`
 
 - **Funcionalidade**: O `confirm` exibe uma caixa de diálogo com uma mensagem e botões de "OK" e "Cancelar".
 **Utilidade**: É usado para solicitar uma confirmação do usuário, onde o usuário pode escolher entre duas opções (OK ou Cancelar).
@@ -270,7 +283,7 @@ Essas funcionalidades são úteis para interagir com o usuário em aplicativos d
 
 O objeto `Math` é um objeto embutido em JavaScript que fornece métodos e constantes para realizar operações matemáticas.
 
-Utilizações comuns do Objeto Math:
+### Utilizações comuns do Objeto Math
 
 1. **Operações Matemáticas:**
    - O objeto `Math` fornece métodos para realizar operações matemáticas comuns, como:
@@ -299,7 +312,7 @@ Utilizações comuns do Objeto Math:
      - `Math.log()`: Retorna o logaritmo natural (base e) de um número.
      - E outros métodos como `log10`, `log2` etc.
 
-Exemplo de Utilização:
+### Exemplo de Utilização
 
 ~~~javascript
 // Código JavaScript
@@ -336,7 +349,7 @@ Já quando usamos `const` com valores mutáveis (como arrays e objetos), a vari�
 
 Por este motivo, pode-se usar `const` com objetos mutáveis e ainda assim alterar seus valores internos. A única coisa que não vamos conseguir fazer é reatribuir o valor da variável.
 
-Exemplos:
+### Exemplos de Const com valores mutáveis
 
 **Isso Pode:**
 
@@ -379,7 +392,7 @@ Utilizações do Array:
 5. **Ordenação e Busca:**
    - Arrays podem ser ordenados usando o método `sort()` e pesquisados usando métodos como `indexOf()` e `includes()`.
 
-Exemplo de Utilização:
+### Exemplo de `Array` em JavaScript
 
 ~~~javascript
 // Código JavaScript
@@ -429,7 +442,7 @@ Utilizações das Funções
 5. **Retorno de Valores:**
    - Funções podem retornar valores como resultado da execução, permitindo que você obtenha resultados computados dentro da função para serem usados em outras partes do código.
 
-Exemplo de Utilização:
+### Exemplo da Utilização de Funções
 
 ~~~javascript
 // Código JavaScript
@@ -464,7 +477,7 @@ Utilizações dos Objetos:
 4. **Herança e Polimorfismo:**
    - JavaScript é uma linguagem orientada a objetos prototipada, o que significa que os objetos podem herdar propriedades e métodos de outros objetos protótipos, permitindo a criação de hierarquias de objetos e polimorfismo.
 
-Exemplo de Utilização:
+### Exemplo da Utilização de Objetos
 
 ~~~javascript
 // Código JavaScript
@@ -494,7 +507,7 @@ Os objetos são uma parte fundamental do JavaScript e são usados para represent
 
 ## Valores Primitivos e Valores por Referência em JavaScript
 
-Valores Primitivos:
+### Valores Primitivos
 
 - **O que são:** Valores primitivos são dados simples e imutáveis que são armazenados diretamente na variável.
 - **Tipos de Valores Primitivos:** Os tipos de valores primitivos em JavaScript são: `string`, `number`, `boolean`, `null`, `undefined`, `symbol` e `bigint`.
@@ -506,7 +519,7 @@ Valores por Referência:
 - **Tipos de Valores por Referência:** Os tipos de valores por referência em JavaScript são: objetos, arrays, funções e datas.
 - **Utilização:** Valores por referência são utilizados para armazenar dados mais complexos, como coleções de dados, objetos com propriedades e métodos, ou funções. Eles são copiados por referência, o que significa que a variável armazena uma referência ao objeto na memória, não uma cópia dos dados.
 
-Exemplo de Utilização:
+### Exemplo da Utilização Valores Primitivos
 
 ~~~javascript
 // Código JavaScript
