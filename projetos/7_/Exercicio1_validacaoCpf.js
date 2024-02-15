@@ -6,8 +6,7 @@ class CPFValidator {
     init() {
         const cleanCPF = CPFValidator.cleanCPF(this.cpf);
         const validCPF = CPFValidator.validCleanCpf(cleanCPF);
-
-        console.log(validCPF ? 'CPF Válido' : 'CPF Inválido');
+        return validCPF;
     }
 
     static validCleanCpf(cleanCPF) {
@@ -60,4 +59,6 @@ const cpf = '705.484.450-52';
 // const cpf = '111.111.111-11';
 
 const cpfValidator = new CPFValidator(cpf);
-cpfValidator.init();
+const validCPF = cpfValidator.init();
+
+console.log(validCPF ? 'CPF Válido' : 'CPF Inválido');
