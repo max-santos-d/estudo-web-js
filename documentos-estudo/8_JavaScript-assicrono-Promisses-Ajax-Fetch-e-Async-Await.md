@@ -21,6 +21,9 @@
   - [Fetch API (GET)](#fetch-api-get)
     - [Exercicio para fixar - Fetch API](#exercicio-para-fixar---fetch-api)
   - [Fetch API e Axios (JSON)](#fetch-api-e-axios-json)
+    - [Utilizando Fetch API](#utilizando-fetch-api)
+    - [Utilizando Axios](#utilizando-axios)
+    - [Exercicio para fixar - Fetch API e Axios (JSON)](#exercicio-para-fixar---fetch-api-e-axios-json)
 
 ## Promises
 
@@ -781,7 +784,7 @@ O `XMLHttpRequest` é um objeto JavaScript usado para fazer requisições HTTP a
 
 Exercício utilizando requisição XMLHttpRequest + Promises em mini projeto web:
 
-- `projetos/8_/Projeto1` - [projeto1](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto1)
+- `projetos/8_/Projeto1` - [projeto 01 - XMLHttpRequest](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto1)
 
 ## Fetch API (GET)
 
@@ -823,6 +826,60 @@ Este é apenas um exemplo básico de como usar a fetch API. Ela oferece muitos r
 
 Exercício utilizando requisição Fetch API (GET) em um mini-projeto web:
 
-- `projetos/8_/Projeto2` -
+- `projetos/8_/Projeto2` - [Projeto 02 - Fetch API](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto2)
 
 ## Fetch API e Axios (JSON)
+
+A Fetch API e o Axios são duas bibliotecas populares em JavaScript para fazer requisições HTTP. Ambas permitem fazer requisições de forma assíncrona e têm suporte para Promises, tornando o código mais limpo e fácil de entender.
+
+Vamos comparar a utilização da Fetch API e do Axios para fazer uma requisição GET para uma API que retorna dados em formato JSON:
+
+### Utilizando Fetch API
+
+~~~javascript
+// Código JavaScript
+
+fetch('https://api.example.com/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Dados recebidos:', data);
+  })
+  .catch(error => {
+    console.error('Erro:', error.message);
+  });
+~~~
+
+### Utilizando Axios
+
+~~~javascript
+// Código JavaScript
+
+axios.get('https://api.example.com/data')
+  .then(response => {
+    console.log('Dados recebidos:', response.data);
+  })
+  .catch(error => {
+    console.error('Erro:', error.message);
+  });
+~~~
+
+Ambos os exemplos fazem uma requisição GET para a URL especificada e lidam com a resposta e possíveis erros de maneira semelhante. No entanto, há algumas diferenças notáveis:
+
+1. **Sintaxe**: A sintaxe do Axios é mais limpa e simplificada, com métodos específicos para diferentes tipos de requisição (e.g., `axios.get`, `axios.post`, `axios.put`, etc.), enquanto a Fetch API requer o uso de diferentes métodos (e.g., `fetch` para todas as requisições, `response.json()` para analisar a resposta como JSON, etc.).
+
+2. **Interoperabilidade com Promises**: Ambas as bibliotecas têm suporte para Promises, mas a Fetch API é nativa do navegador, enquanto o Axios é uma biblioteca externa. Isso pode ser uma consideração importante ao decidir qual usar, dependendo das necessidades e restrições do projeto.
+
+3. **Compatibilidade com navegadores**: A Fetch API é nativa dos navegadores modernos, mas pode exigir polifilos ou transpiladores para suportar navegadores mais antigos. Por outro lado, o Axios é independente do navegador e pode ser usado em qualquer ambiente JavaScript.
+
+Em resumo, tanto a Fetch API quanto o Axios são boas opções para fazer requisições HTTP em JavaScript. A escolha entre elas depende das preferências pessoais, requisitos do projeto e necessidades de compatibilidade com o navegador.
+
+### Exercicio para fixar - Fetch API e Axios (JSON)
+
+Exercício utilizando requisição Fetch API e Axios em um mini-projeto web:
+
+- `projetos/8_/Projeto3` - [Projeto 02 - Fetch API](link)
