@@ -14,5 +14,6 @@ Repository intended for the study of the JavaScript programming language and the
 7. [JavaScript Classes - Programação Orientada a Objetos (POO)](https://github.com/max-santos-d/estudo-web-js/blob/main/documentos-estudo/7_JavaScript-Classes-POO.md)
    - [Section projects](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/7_)
 8. [JavaScript assicrono - Promisses, Ajax, Fetch e Async/Await](https://github.com/max-santos-d/estudo-web-js/blob/main/documentos-estudo/8_JavaScript-assicrono-Promisses-Ajax-Fetch-e-Async-Await.md)
+   - [Section projects](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_)
 
 Developing...

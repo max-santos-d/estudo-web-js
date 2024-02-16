@@ -18,9 +18,9 @@
     - [Refatoramento de código para Async/Await](#refatoramento-de-código-para-asyncawait)
   - [XMLHttpRequest + Promises](#xmlhttprequest--promises)
     - [Exercicio para fixar - XMLHttpRequest](#exercicio-para-fixar---xmlhttprequest)
-  - [Fetch API (GET)](#fetch-api-get)
+  - [Fetch API (GET) em JavaScaript](#fetch-api-get-em-javascaript)
     - [Exercicio para fixar - Fetch API](#exercicio-para-fixar---fetch-api)
-  - [Fetch API e Axios (JSON)](#fetch-api-e-axios-json)
+  - [Fetch API e Axios (JSON) em JavaScaript](#fetch-api-e-axios-json-em-javascaript)
     - [Utilizando Fetch API](#utilizando-fetch-api)
     - [Utilizando Axios](#utilizando-axios)
     - [Exercicio para fixar - Fetch API e Axios (JSON)](#exercicio-para-fixar---fetch-api-e-axios-json)
@@ -784,9 +784,9 @@ O `XMLHttpRequest` é um objeto JavaScript usado para fazer requisições HTTP a
 
 Exercício utilizando requisição XMLHttpRequest + Promises em mini projeto web:
 
-- `projetos/8_/Projeto1` - [projeto 01 - XMLHttpRequest](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto1)
+- `projetos/8_/Projeto1` - [Projeto 01 - XMLHttpRequest](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto1)
 
-## Fetch API (GET)
+## Fetch API (GET) em JavaScaript
 
 A `fetch API` em JavaScript fornece uma interface para fazer requisições HTTP de forma assíncrona, facilitando a interação com recursos remotos como APIs da web. Ela é mais moderna e poderosa do que a antiga `XMLHttpRequest`, e é baseada em Promises, o que a torna mais fácil de usar e mais flexível.
 
@@ -828,7 +828,7 @@ Exercício utilizando requisição Fetch API (GET) em um mini-projeto web:
 
 - `projetos/8_/Projeto2` - [Projeto 02 - Fetch API](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto2)
 
-## Fetch API e Axios (JSON)
+## Fetch API e Axios (JSON) em JavaScaript
 
 A Fetch API e o Axios são duas bibliotecas populares em JavaScript para fazer requisições HTTP. Ambas permitem fazer requisições de forma assíncrona e têm suporte para Promises, tornando o código mais limpo e fácil de entender.
 
@@ -882,4 +882,6 @@ Em resumo, tanto a Fetch API quanto o Axios são boas opções para fazer requis
 
 Exercício utilizando requisição Fetch API e Axios em um mini-projeto web:
 
-- `projetos/8_/Projeto3` - [Projeto 02 - Fetch API](link)
+- `projetos/8_/Projeto3` - [Projeto 03 - Axios](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto3)
+
+Obs.: Necessario implementar o complemento do Axios para implementação no mini-projeto.

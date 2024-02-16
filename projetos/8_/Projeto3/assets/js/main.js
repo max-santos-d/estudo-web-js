@@ -1,6 +1,10 @@
-fetch('pessoas.json')
-    .then(response => response.json())
-    .then(json => loadPage(json));
+// fetch('pessoas.json')
+//     .then(response => response.json())
+//     .then(json => loadPage(json));
+
+axios('pessoas.json')
+    .then(response => loadPage(response.data))
+    .catch(error => console.log(error));
 
 function loadPage(json) {
     const content = document.querySelector('.content');
