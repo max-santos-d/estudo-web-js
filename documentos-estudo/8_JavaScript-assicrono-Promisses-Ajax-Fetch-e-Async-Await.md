@@ -17,8 +17,9 @@
     - [`async`](#async)
     - [Refatoramento de código para Async/Await](#refatoramento-de-código-para-asyncawait)
   - [XMLHttpRequest + Promises](#xmlhttprequest--promises)
-    - [Exercicio para fixar](#exercicio-para-fixar)
+    - [Exercicio para fixar - XMLHttpRequest](#exercicio-para-fixar---xmlhttprequest)
   - [Fetch API (GET)](#fetch-api-get)
+    - [Exercicio para fixar - Fetch API](#exercicio-para-fixar---fetch-api)
   - [Fetch API e Axios (JSON)](#fetch-api-e-axios-json)
 
 ## Promises
@@ -776,12 +777,52 @@ O `XMLHttpRequest` é um objeto JavaScript usado para fazer requisições HTTP a
 
     Ao chamar a função `fazerRequisicaoPOST` com a URL e os dados para enviar, usamos `.then()` para lidar com a resposta da requisição e `.catch()` para lidar com qualquer erro que ocorra durante a requisição. Isso permite um melhor tratamento de erros e uma lógica mais clara de manipulação de dados, seguindo o padrão de uso de Promises em JavaScript.
 
-### Exercicio para fixar
+### Exercicio para fixar - XMLHttpRequest
 
 Exercício utilizando requisição XMLHttpRequest + Promises em mini projeto web:
 
-- `projetos/8_/Projeto1` - [projeto1](link)
+- `projetos/8_/Projeto1` - [projeto1](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto1)
 
 ## Fetch API (GET)
+
+A `fetch API` em JavaScript fornece uma interface para fazer requisições HTTP de forma assíncrona, facilitando a interação com recursos remotos como APIs da web. Ela é mais moderna e poderosa do que a antiga `XMLHttpRequest`, e é baseada em Promises, o que a torna mais fácil de usar e mais flexível.
+
+Aqui está um exemplo simples de como usar a `fetch API` para fazer uma requisição GET:
+
+~~~javascript
+// Código JavaScript
+
+fetch('https://api.example.com/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Dados recebidos:', data);
+    // Faça o que precisar com os dados recebidos, como processar ou exibir na interface do usuário
+  })
+  .catch(error => {
+    console.error('Erro:', error.message);
+    // Trate o erro de acordo com suas necessidades, como exibir uma mensagem de erro para o usuário
+  });
+~~~
+
+Neste exemplo:
+
+- Usamos `fetch` para fazer uma requisição GET para a URL especificada (`https://api.example.com/data`).
+- Encadeamos um `.then()` para lidar com a resposta da requisição. Dentro desse callback, verificamos se a resposta é "ok" (ou seja, se o status HTTP está entre 200 e 299). Se não estiver, lançamos um erro.
+- Se a resposta estiver ok, usamos `response.json()` para extrair e analisar o corpo da resposta como JSON.
+- Encadeamos outro `.then()` para lidar com os dados recebidos. Dentro desse callback, processamos ou exibimos os dados conforme necessário.
+- Usamos `.catch()` para lidar com qualquer erro que ocorra durante a requisição ou o processamento dos dados.
+
+Este é apenas um exemplo básico de como usar a fetch API. Ela oferece muitos recursos poderosos, como suporte para diferentes tipos de requisições (GET, POST, PUT, DELETE, etc.), envio de dados no corpo da requisição, configuração de cabeçalhos HTTP personalizados e muito mais. Ela é amplamente usada em aplicativos web modernos devido à sua simplicidade e flexibilidade.
+
+### Exercicio para fixar - Fetch API
+
+Exercício utilizando requisição Fetch API (GET) em um mini-projeto web:
+
+- `projetos/8_/Projeto2` -
 
 ## Fetch API e Axios (JSON)
