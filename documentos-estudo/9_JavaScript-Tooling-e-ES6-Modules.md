@@ -204,7 +204,6 @@ Importar várias exportações:
 import { minhaFuncao, minhaVariavel } from './meuModulo';
 ~~~
 
-
 Importar todas as exportações como um objeto:
 
 ~~~javascript
