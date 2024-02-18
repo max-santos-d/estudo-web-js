@@ -24,3 +24,30 @@ body {
     border-radius: 20px;
     padding: 20px;
 }
+
+
+.section button {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: var(--magenta-escuro);
+    color: var(--neve);
+    font-size: 18px;
+    font-weight: bold;
+    height: 40px;
+    cursor: pointer;
+}
+
+.section button:hover {
+    opacity: 80%;
+}
+
+.section .result {
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    padding: 30px 0;
+    text-align: center;
+}
+

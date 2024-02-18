@@ -1,24 +1,22 @@
-class CPFValidator {
+export default class ValidatorCPF {
     constructor(cpf) {
         this.cpf = cpf;
     }
 
     init() {
-        const cleanCPF = CPFValidator.cleanCPF(this.cpf);
-        const validCPF = CPFValidator.validCleanCpf(cleanCPF);
+        const cleanCPF = ValidatorCPF.cleanCPF(this.cpf);
+        const validCPF = ValidatorCPF.validCleanCpf(cleanCPF);
         return validCPF;
     }
 
     static validCleanCpf(cleanCPF) {
         if (typeof cleanCPF === 'undefined') return false;
         if (cleanCPF.length !== 11) return false;
-        if (CPFValidator.sequenceCPF(cleanCPF)) return false;
+        if (ValidatorCPF.sequenceCPF(cleanCPF)) return false;
 
-        const sliceCPF = CPFValidator.sliceCPF(cleanCPF);
-        const calcDigit1 = CPFValidator.calcCPF(sliceCPF);
-        const digit1 = CPFValidator.digitCalc(calcDigit1);
-        const calcDigit2 = CPFValidator.calcCPF(sliceCPF + digit1);
-        const digit2 = CPFValidator.digitCalc(calcDigit2);
+        const sliceCPF = ValidatorCPF.sliceCPF(cleanCPF);
+        const digit1 = ValidatorCPF.calcDigit(sliceCPF);
+        const digit2 = ValidatorCPF.calcDigit(sliceCPF + digit1);
         const newCpf = sliceCPF + digit1 + digit2;
 
         return newCpf === cleanCPF;
@@ -32,7 +30,7 @@ class CPFValidator {
         return cpf.replace(/\D+/g, '');
     }
 
-    static calcCPF(sliceCPF) {
+    static calcDigit(sliceCPF) {
         const arrayCPF = Array.from(sliceCPF);
 
         const result = arrayCPF.reduce((accumulator, value, index, array) => {
@@ -41,11 +39,8 @@ class CPFValidator {
             return accumulator;
         }, 0);
 
-        return result;
-    };
-
-    static digitCalc(result) {
         const calculatedDigit = 11 - (result % 11);
+
         return (calculatedDigit <= 9) ? String(calculatedDigit) : '0';
     };
 
@@ -54,3 +49,11 @@ class CPFValidator {
         return sequence === cpf;
     }
 };
+
+// const cpf = '705.484.450-52';
+// // const cpf = '111.111.111-11';
+
+// const cpfValidator = new ValidatorCPF(cpf);
+// const validCPF = cpfValidator.init();
+
+// console.log(validCPF ? 'CPF Válido' : 'CPF Inválido');
