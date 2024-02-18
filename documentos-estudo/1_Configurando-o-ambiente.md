@@ -275,6 +275,44 @@ else
 fi
 ~~~
 
+Com push:
+
+~~~sh
+#!/bin/bash
+
+# Verifica se há mudanças para commit
+if git status -s | grep .; then
+    # Solicita mensagem de commit ao usuário
+    echo "Digite a mensagem do commit:"
+    read commit_message
+
+    # Adiciona todos os arquivos modificados para staging
+    git add .
+
+    # Realiza o commit com a mensagem capturada
+    git commit -m "$commit_message"
+
+    # Pergunta se deseja realizar o push
+    read -p "Deseja realizar o push? (s/n): " resposta
+
+    # Verifica a resposta
+    if [ "$resposta" = "s" ]; then
+        # Realiza o push
+        git push
+
+        # Informa ao usuário que o commit e push foi realizado com sucesso
+        echo "Commit e push realizados com sucesso!"
+    else
+
+        # Informa ao usuário que o commit foi realizado com sucesso
+        echo "Commit realizado com sucesso!"
+    fi
+else
+    # Informa ao usuário que não há mudanças para commit
+    echo "Não há mudanças para commit."
+fi
+~~~
+
 ## inicialização do npm
 
 A inicialização do npm (Node Package Manager) em um projeto é o primeiro passo para gerenciar as dependências do seu projeto Node.js. Aqui estão os passos básicos para iniciar o npm em um projeto:

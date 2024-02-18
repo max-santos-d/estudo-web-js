@@ -9,6 +9,8 @@ ndice
   - [Webpack](#webpack)
     - [Como Utilizar o Webpack em um Projeto Real](#como-utilizar-o-webpack-em-um-projeto-real)
     - [Exemplo prático com o Webpack](#exemplo-prático-com-o-webpack)
+  - [ES6 Modules - Import/Export](#es6-modules---importexport)
+  - [Projetos e exercicios pratcos](#projetos-e-exercicios-pratcos)
 
 ## Babel
 
@@ -171,3 +173,95 @@ Isso instrui o Webpack a ler o arquivo de configuração `webpack.config.js` e g
 
 O exemplo com decrição de passo a passo pode ser acessado em:
     - `projetos/9_/2_webpack-example` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/9_/2_webpack-example)
+
+## ES6 Modules - Import/Export
+
+~~~javascript
+// Código JavaScript
+
+
+~~~
+
+Os módulos ES6 (também conhecidos como ES2015) introduziram uma maneira nativa de modularizar o código JavaScript, permitindo que os desenvolvedores organizem melhor seus projetos e reutilizem o código de forma mais eficiente. Isso é alcançado através das instruções import e export.
+
+Import
+
+A instrução `import` é usada para importar funcionalidades (como variáveis, funções, classes) de outros módulos. Existem várias maneiras de usar o `import`:
+
+Importar uma única exportação:
+
+~~~javascript
+// Código JavaScript
+
+import { minhaFuncao } from './meuModulo';
+~~~
+
+Importar várias exportações:
+
+~~~javascript
+// Código JavaScript
+
+import { minhaFuncao, minhaVariavel } from './meuModulo';
+~~~
+
+
+Importar todas as exportações como um objeto:
+
+~~~javascript
+// Código JavaScript
+
+import * as meuModulo from './meuModulo';
+~~~
+
+Export
+
+A instrução export é usada para exportar funcionalidades de um módulo. Existem várias maneiras de usar o export:
+
+Exportar uma função, variável ou classe:
+
+~~~javascript
+// Código JavaScript
+
+export function minhaFuncao() {
+  // código da função
+}
+
+export const minhaVariavel = 'valor';
+~~~
+
+Exportar uma função por padrão (exportação padrão):
+
+~~~javascript
+// Código JavaScript
+
+export default function minhaFuncao() {
+  // código da função
+}
+~~~
+
+Exemplo de Uso:
+
+Considere dois arquivos, `meuModulo.js` e `app.js`:
+
+~~~javascript
+// Código JavaScript
+
+// meuModulo.js
+export function minhaFuncao() {
+  console.log('Minha função');
+}
+
+export const minhaVariavel = 'Meu valor';
+
+// app.js
+import { minhaFuncao, minhaVariavel } from './meuModulo';
+
+minhaFuncao(); // Saída: Minha função
+console.log(minhaVariavel); // Saída: Meu valor
+~~~
+
+Neste exemplo, `minhaFuncao` e minhaVariavel são importadas de `meuModulo.js` para `app.js` e são usadas como qualquer outra função ou variável no arquivo `app.js`.
+
+## Projetos e exercicios pratcos
+
+Os projetos e exericicos práticos podem ser encontrados em `projetos/9_` ou [Clicando Aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/9_).
