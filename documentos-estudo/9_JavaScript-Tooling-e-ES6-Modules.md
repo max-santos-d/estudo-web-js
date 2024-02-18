@@ -5,6 +5,7 @@ ndice
 - [JavaScript Tooling e ES6 Modules](#javascript-tooling-e-es6-modules)
   - [Babel](#babel)
   - [Como Utilizar o Babel em um Projeto Real](#como-utilizar-o-babel-em-um-projeto-real)
+    - [Exemplo prático com o Babel](#exemplo-prático-com-o-babel)
   - [Webpack](#webpack)
 
 ## Babel
@@ -84,5 +85,10 @@ Para utilizar o Babel em um projeto real, geralmente seguimos os seguintes passo
     Isso dirá ao Webpack para usar o Babel para transpilar arquivos JavaScript no diretório src, excluindo qualquer código de biblioteca do node_modules.
 
 5. Uso no Desenvolvimento e Produção: Durante o desenvolvimento, podemos executar o Babel sob demanda para transpilar nosso código à medida que fazemos alterações. Em produção, geralmente configuramos a compilação do Babel como parte do processo de construção, para gerar código otimizado e compatível com os navegadores mais antigos.
+
+### Exemplo prático com o Babel
+
+O exemplo com decrição de passo a passo pode ser acessado em:
+    - `projetos/9_/1_babel-example` ou [clicando aqui]()
 
 ## Webpack

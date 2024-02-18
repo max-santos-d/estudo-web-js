@@ -15,5 +15,7 @@ Repository intended for the study of the JavaScript programming language and the
    - [Section projects](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/7_)
 8. [JavaScript assicrono - Promisses, Ajax, Fetch e Async/Await](https://github.com/max-santos-d/estudo-web-js/blob/main/documentos-estudo/8_JavaScript-assicrono-Promisses-Ajax-Fetch-e-Async-Await.md)
    - [Section projects](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_)
+9. [JavaScript Tooling and ES6 Modules](https://github.com/max-santos-d/estudo-web-js/blob/main/documentos-estudo/9_JavaScript-Tooling-e-ES6-Modules.md)
+   - [Section projects]()
 
 Developing...
