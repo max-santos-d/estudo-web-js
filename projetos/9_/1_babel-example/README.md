@@ -46,7 +46,6 @@ Passo 7 - Criação de script `"babel": "babel ./main.js -o ./bundle.js --preset
 // Arquivo JSON
 
 "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "babel ./main.js -o ./bundle.js --presets=babel/env -w"
 },
 ~~~

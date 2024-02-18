@@ -7,6 +7,7 @@ ndice
   - [Como Utilizar o Babel em um Projeto Real](#como-utilizar-o-babel-em-um-projeto-real)
     - [Exemplo prático com o Babel](#exemplo-prático-com-o-babel)
   - [Webpack](#webpack)
+    - [Exemplo prático com o Webpack](#exemplo-prático-com-o-webpack)
 
 ## Babel
 
@@ -92,3 +93,20 @@ O exemplo com decrição de passo a passo pode ser acessado em:
     - `projetos/9_/1_babel-example` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/9_/1_babel-example)
 
 ## Webpack
+
+ Webpack é uma ferramenta popular de código aberto utilizada para empacotar e modularizar aplicações web JavaScript. Ele é frequentemente utilizado em conjunto com outras ferramentas modernas de desenvolvimento web, como Babel, para criar uma pipeline de construção eficiente para projetos JavaScript.
+
+Aqui estão algumas características e funcionalidades do Webpack:
+
+- **Empacotamento de Módulos**: O Webpack permite a importação de módulos JavaScript, CSS, arquivos de imagem e outros tipos de arquivos em um único bundle, simplificando o carregamento e o gerenciamento de dependências.
+- **Gerenciamento de Dependências**: O Webpack analisa as dependências do seu código e as inclui no bundle final. Isso facilita o desenvolvimento de aplicações modulares, onde os diferentes componentes dependem uns dos outros.
+- **Suporte a Plugins**: O Webpack é altamente extensível e oferece suporte a uma ampla variedade de plugins que podem ser utilizados para realizar tarefas adicionais durante o processo de construção, como otimização de código, minificação, geração de arquivos de manifesto, entre outros.
+- **Criação de Ambientes de Desenvolvimento e Produção**: O Webpack pode ser configurado para gerar bundles otimizados para ambientes de desenvolvimento e produção. No ambiente de desenvolvimento, ele pode habilitar funcionalidades como hot module replacement (HMR) para recarregar automaticamente as alterações no navegador sem a necessidade de atualizar a página. No ambiente de produção, ele pode realizar otimizações de tamanho e desempenho para garantir que o código seja eficiente e rápido de carregar.
+- **Suporte a Diferentes Tipos de Arquivos**: Além de JavaScript, o Webpack suporta a importação de uma variedade de outros tipos de arquivos, como CSS, SASS, LESS, arquivos de imagem, fontes e muito mais. Ele pode ser configurado para processar esses arquivos e incluí-los no bundle final.
+- **Criação de Múltiplos Bundles**: O Webpack permite criar múltiplos bundles para diferentes partes da aplicação. Isso é útil para dividir a lógica da aplicação em partes menores e carregar apenas o código necessário para cada página ou componente.
+- **Integração com Outras Ferramentas**: O Webpack é frequentemente utilizado em conjunto com outras ferramentas de desenvolvimento web, como Babel, ESLint, Jest, entre outros. Ele pode ser configurado para trabalhar em conjunto com essas ferramentas para criar uma pipeline de construção poderosa e eficiente.
+
+### Exemplo prático com o Webpack
+
+O exemplo com decrição de passo a passo pode ser acessado em:
+    - `projetos/9_/2_webpack-example` ou [clicando aqui]()
