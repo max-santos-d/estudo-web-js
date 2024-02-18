@@ -4,10 +4,10 @@ ndice
 
 - [JavaScript Tooling e ES6 Modules](#javascript-tooling-e-es6-modules)
   - [Babel](#babel)
-  - [Como Utilizar o Babel em um Projeto Real](#como-utilizar-o-babel-em-um-projeto-real)
+    - [Como Utilizar o Babel em um Projeto Real](#como-utilizar-o-babel-em-um-projeto-real)
     - [Exemplo prático com o Babel](#exemplo-prático-com-o-babel)
   - [Webpack](#webpack)
-  - [Como Utilizar o Webpack em um Projeto Real](#como-utilizar-o-webpack-em-um-projeto-real)
+    - [Como Utilizar o Webpack em um Projeto Real](#como-utilizar-o-webpack-em-um-projeto-real)
     - [Exemplo prático com o Webpack](#exemplo-prático-com-o-webpack)
 
 ## Babel
@@ -23,7 +23,7 @@ Principais características e benefícios do Babel:
 
 Facilidade de uso: É fácil de configurar e usar, com uma configuração mínima necessária para começar a transpilar código.
 
-## Como Utilizar o Babel em um Projeto Real
+### Como Utilizar o Babel em um Projeto Real
 
 Para utilizar o Babel em um projeto real, geralmente seguimos os seguintes passos:
 
@@ -107,7 +107,7 @@ Aqui estão algumas características e funcionalidades do Webpack:
 - **Criação de Múltiplos Bundles**: O Webpack permite criar múltiplos bundles para diferentes partes da aplicação. Isso é útil para dividir a lógica da aplicação em partes menores e carregar apenas o código necessário para cada página ou componente.
 - **Integração com Outras Ferramentas**: O Webpack é frequentemente utilizado em conjunto com outras ferramentas de desenvolvimento web, como Babel, ESLint, Jest, entre outros. Ele pode ser configurado para trabalhar em conjunto com essas ferramentas para criar uma pipeline de construção poderosa e eficiente.
 
-## Como Utilizar o Webpack em um Projeto Real
+### Como Utilizar o Webpack em um Projeto Real
 
 **Instalação do Webpack**: Primeiro, instalamos o Webpack e suas dependências no nosso projeto. Podemos fazer isso utilizando o npm (Node Package Manager) ou o Yarn. Podemos instalar os pacotes necessários do Webpack executando o seguinte comando no terminal, na raiz do projeto:
 
