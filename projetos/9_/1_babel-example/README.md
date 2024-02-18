@@ -13,11 +13,25 @@ Passo 2 - Instalação das dependências do Babel
 ~~~bash
 # Código Bash
 
+# pode-se utilizar sobrem "-D" no local "--save-dev"
 npm install --save-dev @babel/core @babel/cli @babel/preset-env
 ~~~
 
-Passo 3
+Passo 3 - Criação do documento `.gitignore` e adicionar a pasta `node_modules` (Opcional)
 
-Passo 4
+~~~bash
+# Código Bash
 
-Passo 5
+echo "node_modules" >> .gitignore
+~~~
+
+Passo 4 - Criação do script `main.js` para exemplificação
+
+Passo 5 - Execução de comando para criação de arquivo Babel com nome bundle.js
+
+~~~bash
+# Código Bash
+
+# pode-se utilizar sobrem "-o" no local "--out-file"
+npx babel main.js --out-file bundle.js --presets=@babel/env
+~~~

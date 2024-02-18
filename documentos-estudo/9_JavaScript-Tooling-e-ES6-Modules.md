@@ -89,6 +89,6 @@ Para utilizar o Babel em um projeto real, geralmente seguimos os seguintes passo
 ### Exemplo prático com o Babel
 
 O exemplo com decrição de passo a passo pode ser acessado em:
-    - `projetos/9_/1_babel-example` ou [clicando aqui]()
+    - `projetos/9_/1_babel-example` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/9_/1_babel-example)
 
 ## Webpack
