@@ -170,4 +170,4 @@ Isso instrui o Webpack a ler o arquivo de configuração `webpack.config.js` e g
 ### Exemplo prático com o Webpack
 
 O exemplo com decrição de passo a passo pode ser acessado em:
-    - `projetos/9_/2_webpack-example` ou [clicando aqui]()
+    - `projetos/9_/2_webpack-example` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/9_/2_webpack-example)

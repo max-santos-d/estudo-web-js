@@ -16,6 +16,7 @@
     - [Criação de chave SSH para utilização do github](#criação-de-chave-ssh-para-utilização-do-github)
     - [Adicionar a chave SSH ao GitHub](#adicionar-a-chave-ssh-ao-github)
     - [Comandos git importantes](#comandos-git-importantes)
+    - [Automação de commits](#automação-de-commits)
   - [inicialização do npm](#inicialização-do-npm)
   - [Extenções para o VSCode](#extenções-para-o-vscode)
   - [Comandos terminal](#comandos-terminal)
@@ -246,6 +247,33 @@ Agora, seu projeto está sob controle de versão usando o Git, e você pode cont
   - `git merge`
 - Realizar o “git fetch” e, em seguida, o “git merge” automaticamente:
   - `git pull`
+
+### Automação de commits
+
+Salve o script abaixo com a extensão `.sh`, por exemplo `filename.sh`, e dê permissão de execução com o comando `chmod +x filename.sh`. Depois, para executá-lo, basta rodar `./filename.sh` no terminal.
+
+~~~sh
+#!/bin/bash
+
+# Verifica se há mudanças para commit
+if git status --porcelain | grep .; then
+    # Solicita mensagem de commit ao usuário
+    echo "Digite a mensagem do commit:"
+    read commit_message
+
+    # Adiciona todos os arquivos modificados para staging
+    git add .
+
+    # Realiza o commit com a mensagem capturada
+    git commit -m "$commit_message"
+
+    # Informa ao usuário que o commit foi realizado com sucesso
+    echo "Commit realizado com sucesso!"
+else
+    # Informa ao usuário que não há mudanças para commit
+    echo "Não há mudanças para commit."
+fi
+~~~
 
 ## inicialização do npm
 
