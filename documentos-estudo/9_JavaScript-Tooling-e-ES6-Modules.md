@@ -7,6 +7,7 @@ ndice
   - [Como Utilizar o Babel em um Projeto Real](#como-utilizar-o-babel-em-um-projeto-real)
     - [Exemplo prático com o Babel](#exemplo-prático-com-o-babel)
   - [Webpack](#webpack)
+  - [Como Utilizar o Webpack em um Projeto Real](#como-utilizar-o-webpack-em-um-projeto-real)
     - [Exemplo prático com o Webpack](#exemplo-prático-com-o-webpack)
 
 ## Babel
@@ -105,6 +106,66 @@ Aqui estão algumas características e funcionalidades do Webpack:
 - **Suporte a Diferentes Tipos de Arquivos**: Além de JavaScript, o Webpack suporta a importação de uma variedade de outros tipos de arquivos, como CSS, SASS, LESS, arquivos de imagem, fontes e muito mais. Ele pode ser configurado para processar esses arquivos e incluí-los no bundle final.
 - **Criação de Múltiplos Bundles**: O Webpack permite criar múltiplos bundles para diferentes partes da aplicação. Isso é útil para dividir a lógica da aplicação em partes menores e carregar apenas o código necessário para cada página ou componente.
 - **Integração com Outras Ferramentas**: O Webpack é frequentemente utilizado em conjunto com outras ferramentas de desenvolvimento web, como Babel, ESLint, Jest, entre outros. Ele pode ser configurado para trabalhar em conjunto com essas ferramentas para criar uma pipeline de construção poderosa e eficiente.
+
+## Como Utilizar o Webpack em um Projeto Real
+
+**Instalação do Webpack**: Primeiro, instalamos o Webpack e suas dependências no nosso projeto. Podemos fazer isso utilizando o npm (Node Package Manager) ou o Yarn. Podemos instalar os pacotes necessários do Webpack executando o seguinte comando no terminal, na raiz do projeto:
+
+~~~bash
+# Código Bash
+
+npm install --save-dev webpack webpack-cli
+~~~
+
+**Criação de Arquivo de Configuração**: Em seguida, criamos um arquivo de configuração do Webpack na raiz do nosso projeto. Este arquivo geralmente é chamado de webpack.config.js e contém as configurações do Webpack, como entrada, saída, loaders e plugins. Aqui está um exemplo básico de arquivo de configuração do Webpack:
+
+~~~javascript
+// Código JavaScript
+
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+~~~
+
+Este exemplo configura o Webpack para ler o arquivo `src/index.js` como ponto de entrada e gerar o arquivo `dist/bundle.js` como saída.
+
+**Configuração de Loaders**: Em projetos mais complexos, podemos precisar configurar loaders para processar diferentes tipos de arquivos, como JavaScript, CSS, arquivos de imagem, entre outros. Por exemplo, podemos adicionar um loader para processar arquivos JavaScript usando Babel:
+
+~~~javascript
+// Código JavaScript
+
+module: {
+  rules: [
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader'
+      }
+    }
+  ]
+}
+~~~
+
+Este exemplo configura o Webpack para usar o `babel-loader` para transpilar arquivos JavaScript no diretório `src`, excluindo qualquer código de biblioteca do `node_modules`.
+
+**Execução do Webpack**: Com o arquivo de configuração configurado, podemos executar o Webpack a partir do terminal para criar o bundle da nossa aplicação. Podemos fazer isso executando o seguinte comando:
+
+~~~bash
+# Código Bash
+
+npx webpack
+~~~
+
+Isso instrui o Webpack a ler o arquivo de configuração `webpack.config.js` e gerar o bundle com base nas configurações fornecidas.
+
+**Integração com Outras Ferramentas**: Por fim, podemos integrar o Webpack com outras ferramentas de desenvolvimento, como um servidor de desenvolvimento para recarregar automaticamente o navegador quando as alterações são feitas no código, ou um sistema de construção para automatizar tarefas de construção, teste e implantação.
 
 ### Exemplo prático com o Webpack
 
