@@ -1,6 +1,6 @@
 # JavaScript Tooling e ES6 Modules
 
-ndice
+Índice
 
 - [JavaScript Tooling e ES6 Modules](#javascript-tooling-e-es6-modules)
   - [Babel](#babel)
