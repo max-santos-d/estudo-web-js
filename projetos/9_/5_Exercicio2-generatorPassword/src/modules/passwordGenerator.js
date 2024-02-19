@@ -3,9 +3,9 @@ const numberGenerate = () => String(random(0, 9));
 const uppercaseGenerate = () => String.fromCharCode(random(65, 90));
 const lowercaseGenerate = () => String.fromCharCode(random(97, 122));
 
-const symbolsGenerate = () => {
+const symbolGenerate = () => {
     const symbols = '!@#$%&*()_+-=';
-    return symbols[this.random(0, symbols.length)];
+    return symbols[random(0, symbols.length)];
 };
 
 const shuffleArray = (arr) => {
@@ -16,7 +16,7 @@ const shuffleArray = (arr) => {
     return arr;
 };
 
-export default function passwordGenerator(quantity, number, uppercase, lowercase, symbols) {
+export default function passwordGenerator(quantity, number, uppercase, lowercase, symbol) {
 
     let array = [];
 
@@ -24,7 +24,7 @@ export default function passwordGenerator(quantity, number, uppercase, lowercase
         number && array.push(numberGenerate());
         uppercase && array.push(uppercaseGenerate());
         lowercase && array.push(lowercaseGenerate());
-        symbols && array.push(symbolsGenerate());
+        symbol && array.push(symbolGenerate());
     }
 
     array = shuffleArray(array).join('').slice(0, quantity);
