@@ -683,8 +683,8 @@ As funções geradoras são uma poderosa ferramenta em JavaScript para criar ite
 
 ## Exercício 01 - Pratica com Factory Functions
 
-Desenvolvimento de um pequeno projeto utilizando Factory Functions para criação de uma calculadora. O projeto pode ser encontrado na pasta: `projetos/4_/Exercicio1_calculator-factory-functions` ou [clicando aqui]([link](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/4_/Exercicio1_calculator-factory-functions));
+Desenvolvimento de um pequeno projeto utilizando Factory Functions para criação de uma calculadora. O projeto pode ser encontrado na pasta: `projetos/04_/Exercicio1_calculator-factory-functions` ou [clicando aqui](../projetos/04_/Exercicio1_calculator-factory-functions/);
 
 ## Exercício 02 - Pratica com Constructor Functions
 
-Desenvolvimento do projeto anterior, agora utilizando Constructor Functions para criação da calculadora. O projeto pode ser encontrado na pasta: `projetos/4_/Exercicio2_calculator-constructor-functions` ou [clicando aqui]([link](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/4_/Exercicio2_calculator-constructor-functions));
+Desenvolvimento do projeto anterior, agora utilizando Constructor Functions para criação da calculadora. O projeto pode ser encontrado na pasta: `projetos/4_/Exercicio2_calculator-constructor-functions` ou [clicando aqui](../projetos/04_/Exercicio2_calculator-constructor-functions/);

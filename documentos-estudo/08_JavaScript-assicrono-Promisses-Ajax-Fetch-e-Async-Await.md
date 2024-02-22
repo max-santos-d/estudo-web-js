@@ -784,7 +784,7 @@ O `XMLHttpRequest` é um objeto JavaScript usado para fazer requisições HTTP a
 
 Exercício utilizando requisição XMLHttpRequest + Promises em mini projeto web:
 
-- `projetos/8_/Projeto1` - [Projeto 01 - XMLHttpRequest](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto1)
+- `projetos/08_/Projeto1` - [Projeto 01 - XMLHttpRequest](../projetos/08_/Projeto1/)
 
 ## Fetch API (GET) em JavaScaript
 
@@ -826,7 +826,7 @@ Este é apenas um exemplo básico de como usar a fetch API. Ela oferece muitos r
 
 Exercício utilizando requisição Fetch API (GET) em um mini-projeto web:
 
-- `projetos/8_/Projeto2` - [Projeto 02 - Fetch API](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto2)
+- `projetos/08_/Projeto2` - [Projeto 02 - Fetch API](../projetos/08_/Projeto2/)
 
 ## Fetch API e Axios (JSON) em JavaScaript
 
@@ -882,6 +882,6 @@ Em resumo, tanto a Fetch API quanto o Axios são boas opções para fazer requis
 
 Exercício utilizando requisição Fetch API e Axios em um mini-projeto web:
 
-- `projetos/8_/Projeto3` - [Projeto 03 - Axios](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/8_/Projeto3)
+- `projetos/08_/Projeto3` - [Projeto 03 - Axios](../projetos/08_/Projeto3/)
 
 Obs.: Necessario implementar o complemento do Axios para implementação no mini-projeto.

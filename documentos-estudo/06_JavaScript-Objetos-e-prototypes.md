@@ -1135,4 +1135,4 @@ O resultado é um `Map()` chamado `novasPessoas` onde as pessoas são armazenada
 
 ## Exercicio - Validação de CPF
 
-Exercício para fixação de conteúdo com o desenvolvimetno de um algorítimo para validação de CPF disponível no caminho `projetos/6_/validacaoCpf.js` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/blob/main/projetos/6_/validacaoCpf.js).
+Exercício para fixação de conteúdo com o desenvolvimetno de um algorítimo para validação de CPF disponível no caminho `projetos/06_/validacaoCpf.js` ou [clicando aqui](../projetos/06_/validacaoCpf.js).

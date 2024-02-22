@@ -291,8 +291,8 @@ Os métodos de instância são úteis para operações que dependem de dados esp
 
 ## Exercício 01 - Validação de CPF (Classes)
 
-Exercício para fixação de conteúdo com o desenvolvimetno de um algorítimo para validação de CPF utilizando Classes disponível no caminho `projetos/7_/Exercicio1_validacaoCpf.js` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/blob/main/projetos/7_/Exercicio01_validacaoCpf.js).
+Exercício para fixação de conteúdo com o desenvolvimetno de um algorítimo para validação de CPF utilizando Classes disponível no caminho `projetos/07_/Exercicio1_validacaoCpf.js` ou [clicando aqui](../projetos/07_/Exercicio1_validacaoCpf.js).
 
 ## Exercicio 02 - Validação de formulário utilizando Classes
 
-Exercício para fixação de conteúdo com o desenvolvimetno de um projeto para validação de um formulário utilizando Classes, disponível no caminho `projetos/7_/Exercicio2_validacaoForm` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/7_/Exercicio2_validacaoForm).
+Exercício para fixação de conteúdo com o desenvolvimetno de um projeto para validação de um formulário utilizando Classes, disponível no caminho `projetos/07_/Exercicio2_validacaoForm` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/7_/Exercicio2_validacaoForm).

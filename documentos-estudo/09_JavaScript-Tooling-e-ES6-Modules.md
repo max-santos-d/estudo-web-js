@@ -10,7 +10,7 @@
     - [Como Utilizar o Webpack em um Projeto Real](#como-utilizar-o-webpack-em-um-projeto-real)
     - [Exemplo prático com o Webpack](#exemplo-prático-com-o-webpack)
   - [ES6 Modules - Import/Export](#es6-modules---importexport)
-  - [Projetos e exercicios pratcos](#projetos-e-exercicios-pratcos)
+  - [Projetos e exercicios praticos](#projetos-e-exercicios-praticos)
 
 ## Babel
 
@@ -261,6 +261,6 @@ console.log(minhaVariavel); // Saída: Meu valor
 
 Neste exemplo, `minhaFuncao` e minhaVariavel são importadas de `meuModulo.js` para `app.js` e são usadas como qualquer outra função ou variável no arquivo `app.js`.
 
-## Projetos e exercicios pratcos
+## Projetos e exercicios praticos
 
-Os projetos e exericicos práticos podem ser encontrados em `projetos/9_` ou [Clicando Aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/9_).
+Os projetos e exericicos práticos podem ser encontrados em `projetos/09_` ou [Clicando Aqui](../projetos/09_/).

@@ -14,6 +14,7 @@
   - [NPM - Node Package Manager](#npm---node-package-manager)
   - [File System (FS)](#file-system-fs)
     - [Funcionalidades Principais do FS](#funcionalidades-principais-do-fs)
+  - [Projetos e exercícios praticos](#projetos-e-exercícios-praticos)
 
 ## Módulos
 
@@ -269,3 +270,7 @@ fs.readFile('arquivo.txt', 'utf8', (err, data) => {
     });
 });
 ~~~
+
+## Projetos e exercícios praticos
+
+s projetos e exericicos práticos podem ser encontrados em: `projetos/10_` ou [Clicando Aqui](../projetos/10_/).
