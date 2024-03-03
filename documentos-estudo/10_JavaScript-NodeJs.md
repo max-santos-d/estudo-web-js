@@ -14,6 +14,13 @@
   - [NPM - Node Package Manager](#npm---node-package-manager)
   - [File System (FS)](#file-system-fs)
     - [Funcionalidades Principais do FS](#funcionalidades-principais-do-fs)
+  - [Express](#express)
+    - [Recursos Principais do Express.js](#recursos-principais-do-expressjs)
+    - [Renderizando HTML no express](#renderizando-html-no-express)
+    - [Express + Nodemon](#express--nodemon)
+    - [Exemplo de Uso do Express com o Nodemon](#exemplo-de-uso-do-express-com-o-nodemon)
+    - [Express - `req.params`, `req.query` e `req.body`](#express---reqparams-reqquery-e-reqbody)
+    - [Exemplo com renderização de HTML e submissão e captação dos dados de formulário:](#exemplo-com-renderização-de-html-e-submissão-e-captação-dos-dados-de-formulário)
   - [Projetos e exercícios praticos](#projetos-e-exercícios-praticos)
 
 ## Módulos
@@ -271,6 +278,305 @@ fs.readFile('arquivo.txt', 'utf8', (err, data) => {
 });
 ~~~
 
+## Express
+
+O Express.js é um framework web minimalista e flexível para Node.js, projetado para criar aplicativos web e APIs de forma rápida e eficiente. Ele fornece uma série de recursos poderosos para lidar com rotas, middlewares, renderização de visualizações, gerenciamento de solicitações HTTP, manipulação de sessões e muito mais.
+
+### Recursos Principais do Express.js
+
+- **Gerenciamento de Rotas**: O Express permite definir rotas para diferentes URLs e métodos HTTP usando o método `app.get()`, `app.post()`, `app.put()`, `app.delete()` e outros.
+- **Middlewares**: Os middlewares são funções que são executadas em cada solicitação recebida pelo servidor Express. Eles são usados para executar tarefas comuns, como registro de solicitações, análise de corpo de solicitação, autenticação, autorização, etc.
+- **Suporte a Vários Tipos de Resposta**: Com o Express, você pode enviar várias respostas, como JSON, HTML, texto simples, arquivos estáticos, etc.
+- **Renderização de Visualizações**: O Express facilita a renderização de visualizações dinâmicas usando mecanismos de modelo como EJS, Pug (anteriormente conhecido como Jade), Handlebars, etc.
+- **Gerenciamento de Sessões**: O Express oferece suporte a vários middlewares para o gerenciamento de sessões e cookies, permitindo a persistência de dados entre solicitações do cliente.
+- **Recursos Avançados**: Além disso, o Express possui uma grande variedade de recursos avançados, como roteamento modular, manipulação de erros, compactação de resposta, negociação de conteúdo, entre outros.
+
+**Exemplo de Uso Básico**
+
+Aqui está um exemplo simples de um aplicativo Express que cria um servidor HTTP e responde a solicitações GET na raiz:
+
+~~~javascript
+// Código JavaScript
+
+// CRUD ->  CREATE  READ  UPDATE    DELETE
+//          POST    GET   PUT       DELETE
+//          Criar   Ler   Atualizar Deletar
+
+const express = require('express');
+const app = express();
+
+// Definição da rota para a raiz
+app.get('/', (req, res) => {
+    res.send('Bem-vindo ao Express!');
+});
+
+// Rota de exemplo
+app.get('/exemplo', (req, res) => {
+    res.send('Esta é uma rota de exemplo.');
+});
+
+// Inicialização do servidor na porta 3000
+app.listen(3000, () => {
+    console.log('Acessar http://localhost:3000');
+    console.log('Servidor Express rodando na porta 3000');
+});
+~~~
+
+### Renderizando HTML no express
+
+~~~javascript
+const express = require('express');
+const app = express();
+
+// Definição da rota para a raiz
+app.get('/', (req, res) => {
+    res.send('Bem-vindo ao Express!');
+});
+
+// Rota de exemplo
+app.get('/exemplo', (req, res) => {
+    // Layout HTML básico
+    const htmlLayout = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Express HTML Layout</title>
+        </head>
+        <body>
+            <h1>Exemplo de Rota Express com Layout HTML</h1>
+            <p>Este é um exemplo de rota Express que envia um layout HTML.</p>
+        </body>
+        </html>
+    `;
+
+    res.send(htmlLayout);
+});
+
+// Iniciando o servidor
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Servidor Express está rodando em http://localhost:${port}`);
+});
+~~~
+
+### Express + Nodemon
+
+O Nodemon é uma ferramenta que ajuda no desenvolvimento de aplicativos Node.js, reiniciando automaticamente o servidor sempre que detecta mudanças nos arquivos do projeto. Juntamente com o Express, o Nodemon torna o processo de desenvolvimento mais eficiente, pois você não precisa parar e reiniciar manualmente o servidor a cada vez que faz alterações no código.
+
+Passos para Usar o Express com o Nodemon
+
+- **Instalar o Nodemon**: Comece instalando o Nodemon globalmente ou localmente no projeto. Para instalar globalmente, você pode executar o seguinte comando no terminal:
+
+~~~bash
+npm install -g nodemon
+~~~
+
+Para instalar localmente no projeto, você pode executar:
+
+~~~bash
+npm install nodemon --save-dev
+~~~
+
+- **Atualizar o Script no `package.json`**: Se você instalou o Nodemon localmente no projeto, você precisa atualizar o script no arquivo `package.json` para usar o Nodemon. Adicione uma entrada no script com o comando `nodemon`:
+
+~~~json
+"scripts": {
+    "start": "nodemon app.js"
+}
+~~~
+
+Substitua `app.js` pelo nome do arquivo principal do seu aplicativo Express.
+
+- **Executar o Aplicativo**: Agora você pode iniciar seu aplicativo Express usando o Nodemon executando o seguinte comando no terminal:
+
+~~~bash
+npm start
+~~~
+
+Isso iniciará seu servidor Express e o Nodemon estará observando as alterações nos arquivos do projeto. Sempre que você fizer uma alteração e salvar um arquivo, o Nodemon reiniciará automaticamente o servidor para refletir as alterações.
+
+
+### Exemplo de Uso do Express com o Nodemon
+
+Aqui está um exemplo básico de como usar o Express com o Nodemon:
+
+Instale o Express e o Nodemon:
+
+~~~bash
+npm install express nodemon --save
+~~~
+
+Crie um arquivo `app.js` com o seguinte conteúdo:
+
+~~~javascript
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Olá, mundo!');
+});
+
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Servidor Express está rodando em http://localhost:${port}`);
+});
+~~~
+
+Adicione um script de start no package.json:
+
+~~~json
+"scripts": {
+    "start": "nodemon app.js"
+}
+~~~
+
+Execute o aplicativo usando o Nodemon:
+
+~~~bash
+npm start
+~~~
+
+Agora seu aplicativo Express está em execução e o Nodemon está monitorando as alterações nos arquivos. Experimente fazer alterações no arquivo `app.js` e salve-o. O Nodemon irá reiniciar automaticamente o servidor e refletir as alterações.
+
+### Express - `req.params`, `req.query` e `req.body`
+
+No Express, os objetos req.params, req.query e req.body são usados para acessar diferentes partes dos dados enviados em uma solicitação HTTP. Aqui está uma explicação detalhada de cada um:
+
+**`req.params`**
+
+O objeto `req.params` é usado para acessar os parâmetros de rota em uma solicitação HTTP. Quando você define parâmetros em suas rotas usando dois pontos `:`, esses parâmetros são acessíveis através do objeto `req.params`.
+
+Exemplo de rota com parâmetros:
+
+~~~javascript
+app.get('/users/:id', (req, res) => {
+    const userId = req.params.id;
+    // Faça algo com userId...
+});
+~~~
+
+Neste exemplo, a rota `/users/:id` permite acessar o parâmetro id da URL usando `req.params.id`.
+
+**`req.query`**
+
+O objeto `req.query` é usado para acessar os parâmetros de consulta em uma solicitação HTTP. Parâmetros de consulta são aqueles que vêm após o ponto de interrogação (`?`) na URL.
+
+Exemplo de rota com parâmetros de consulta:
+
+~~~javascript
+app.get('/search', (req, res) => {
+    const searchTerm = req.query.q;
+    // Faça algo com searchTerm...
+});
+~~~
+
+Neste exemplo, a rota `/search` permite acessar o parâmetro de consulta q usando `req.query.q`.
+
+**`req.body`**
+
+O objeto `req.body` é usado para acessar os dados do corpo de uma solicitação HTTP, especialmente em solicitações POST, PUT e PATCH, onde os dados são enviados no corpo da solicitação.
+
+Para acessar o `req.body`, você precisa configurar o Express para analisar o corpo da solicitação. O Express fornece os middlewares `express.json()` e `express.urlencoded()` para analisar automaticamente o corpo da solicitação em formatos JSON e URL-encoded, respectivamente.
+
+Exemplo de uso do `req.body` com `express.json()` e `express.urlencoded()`:
+
+~~~javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json()); // Middleware para analisar corpos de solicitação JSON
+app.use(express.urlencoded({ extended: true })); // Middleware para analisar corpos de solicitação codificados como URL
+
+app.post('/api/users', (req, res) => {
+    const userData = req.body;
+    // Faça algo com userData...
+});
+~~~
+
+
+Neste exemplo, `express.json()` é usado para analisar automaticamente o corpo da solicitação como JSON, enquanto `express.urlencoded()` é usado para analisar corpos de solicitação codificados como URL. Isso permite acessar os dados enviados no corpo da solicitação através do `req.body` na rota especificada.
+
+### Exemplo com renderização de HTML e submissão e captação dos dados de formulário:
+
+~~~javascript
+const express = require('express');
+const app = express();
+
+app.use(express.urlencoded({ exetended: true }));
+
+// Definição da rota para a raiz
+app.get('/', (req, res) => {
+    res.send('Bem-vindo ao Express!');
+});
+
+// Rota de exemplo
+app.get('/exemplo', (req, res) => {
+    // Layout HTML básico
+    const htmlLayout = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Express HTML Layout</title>
+        </head>
+        <body>
+            <h1>Exemplo de Rota Express com Layout HTML</h1>
+            <p>Este é um exemplo de rota Express que envia um layout HTML.</p>
+        </body>
+        </html>
+    `;
+
+    res.send(htmlLayout);
+});
+
+app.get('/form', (req, res) => {
+    // Layout HTML básico com um formulário
+    const htmlLayout = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Express HTML Form Layout</title>
+        </head>
+        <body>
+            <h1>Exemplo de Rota Express com Formulário HTML</h1>
+            <form action="/submit" method="POST">
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+                <button>Enviar</button>
+            </form>
+        </body>
+        </html>
+    `;
+
+    // Enviando o layout HTML com formulário como resposta
+    res.send(htmlLayout);
+});
+
+// Rota para manipular o envio do formulário
+app.post('/submit', (req, res) => {
+
+    console.log(req.body);
+
+    const { name, email } = req.body;
+    res.send(`
+        Formulário enviado com sucesso! <br>
+        Nome: ${name}, Email: ${email}`
+    );
+});
+
+// Iniciando o servidor
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Servidor Express está rodando em http://localhost:${port}`);
+});
+~~~
 ## Projetos e exercícios praticos
 
 s projetos e exericicos práticos podem ser encontrados em: `projetos/10_` ou [Clicando Aqui](../projetos/10_/).
