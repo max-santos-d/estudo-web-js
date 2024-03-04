@@ -21,6 +21,9 @@
     - [Exemplo de Uso do Express com o Nodemon](#exemplo-de-uso-do-express-com-o-nodemon)
     - [Express - `req.params`, `req.query` e `req.body`](#express---reqparams-reqquery-e-reqbody)
     - [Exemplo com renderização de HTML e submissão e captação dos dados de formulário:](#exemplo-com-renderização-de-html-e-submissão-e-captação-dos-dados-de-formulário)
+    - [Express Router](#express-router)
+    - [Express Router + Controllers](#express-router--controllers)
+    - [Express Views](#express-views)
   - [Projetos e exercícios praticos](#projetos-e-exercícios-praticos)
 
 ## Módulos
@@ -577,6 +580,452 @@ app.listen(port, () => {
     console.log(`Servidor Express está rodando em http://localhost:${port}`);
 });
 ~~~
+
+### Express Router
+
+O Express Router é um recurso do Express.js que permite organizar e modularizar as rotas de uma aplicação web ou API. Ele ajuda a manter o código limpo, organizado e fácil de manter, especialmente em aplicações grandes ou complexas.
+
+Funcionalidades do Express Router:
+
+- Organização de Rotas: O Router permite agrupar rotas relacionadas em módulos separados, facilitando a organização e a manutenção do código.
+- Middleware: Assim como o aplicativo principal do Express, o Router também pode usar middleware para tratar solicitações HTTP. Isso permite a aplicação de middleware específico para determinadas rotas ou grupos de rotas.
+- Encadeamento de Rotas: O Router suporta o encadeamento de middleware e manipuladores de rota, permitindo a definição de várias funções de middleware ou manipuladores de rota para a mesma rota.
+- Roteamento Aninhado: O Router suporta o roteamento aninhado, o que significa que você pode definir rotas em rotas, criando uma estrutura hierárquica de roteamento.
+
+Exemplo de Uso do Express Router:
+
+Aqui está um exemplo simples de como usar o Express Router:
+
+~~~javascript
+// arquivo: routes/users.js
+const express = require('express');
+const router = express.Router();
+
+// Definindo uma rota no Router
+router.get('/', (req, res) => {
+    res.send('Lista de usuários');
+});
+
+// Definindo outra rota no Router
+router.get('/:id', (req, res) => {
+    res.send(`Detalhes do usuário com ID ${req.params.id}`);
+});
+
+module.exports = router;
+~~~
+
+~~~javascript
+// arquivo: app.js (ou qualquer arquivo principal)
+const express = require('express');
+const app = express();
+
+// Importando o Router de users.js
+const usersRouter = require('./routes/users');
+
+// Usando o Router para lidar com rotas relacionadas a usuários
+app.use('/users', usersRouter);
+
+// Iniciando o servidor
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Servidor Express está rodando em http://localhost:${port}`);
+});
+~~~
+
+Neste exemplo, `routes/users.js` define um Router com duas rotas relacionadas a usuários. Em seguida, no arquivo principal `app.js`, importamos e usamos esse Router para lidar com todas as rotas relacionadas a usuários, prefixando-as com `/users`. Isso mantém as rotas de usuários organizadas e modulares em seu aplicativo Express.
+
+### Express Router + Controllers
+
+Combinar o Express Router com controllers é uma prática comum para manter suas rotas limpas e separadas da lógica de negócios da sua aplicação. Os controllers são responsáveis por lidar com a lógica de uma rota específica e são chamados pelos manipuladores de rota definidos no Router. Aqui está um exemplo de como você pode usar o Express Router com controllers:
+
+Exemplo de Uso do Express Router com Controllers:
+
+Definindo um Controller:
+
+~~~javascript
+// controllers/usersController.js
+exports.listUsers = (req, res) => {
+    res.send('Lista de usuários');
+};
+
+exports.getUserDetails = (req, res) => {
+    res.send(`Detalhes do usuário com ID ${req.params.id}`);
+};
+~~~
+
+Definindo o Router:
+
+~~~javascript
+// routes.js
+const express = require('express');
+const router = express.Router();
+const usersController = require('../controllers/usersController');
+
+// Definindo rotas no Router com os controllers
+router.get('/', usersController.listUsers);
+router.get('/:id', usersController.getUserDetails);
+
+module.exports = router;
+~~~
+
+Usando o Router no Arquivo Principal:
+
+~~~javascript
+// app.js (ou qualquer arquivo principal)
+const express = require('express');
+const app = express();
+
+// Importando o Router de users.js
+const usersRouter = require('./routes/users');
+
+// Usando o Router para lidar com rotas relacionadas a usuários
+app.use('/users', usersRouter);
+
+// Iniciando o servidor
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Servidor Express está rodando em http://localhost:${port}`);
+});
+~~~
+
+**Exemplo com maior complexidade**
+
+Definindo os Controllers:
+
+~~~javascript
+// arquivo: contollers/contatoController.js
+
+// Importação do módulo 'express' não é necessária nos controladores
+// pois não estão usando recursos específicos do Express diretamente
+
+// Define uma função para a rota '/contato'
+exports.index = (req, res) => {
+    // HTML básico a ser enviado como resposta para a rota
+    const htmlLayout = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Express HTML Contato</title>
+        </head>
+        <body>
+            <h1>Contato</h1>
+            <p>Este é um exemplo de rota Express para contato</p>
+        </body>
+        </html>
+    `;
+
+    // Envia o HTML como resposta
+    res.send(htmlLayout);
+};
+~~~
+
+~~~javascript
+// arquivo: contollers/formController.js
+
+// Define uma função para a rota '/form' com o método GET
+exports.index = (req, res) => {
+    // HTML de um formulário básico
+    const htmlLayout = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Express HTML Form Layout</title>
+        </head>
+        <body>
+            <h1>Exemplo de Rota Express com Formulário HTML</h1>
+            <form action="/form" method="POST">
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+                <button>Enviar</button>
+            </form>
+        </body>
+        </html>
+    `;
+
+    // Envia o HTML como resposta
+    res.send(htmlLayout);
+};
+
+// Define uma função para a rota '/form' com o método POST
+exports.form = (req, res) => {
+    // Exibe os dados do formulário submetido no console
+    console.log(req.body);
+
+    // Extrai os dados do corpo da requisição
+    const { name, email } = req.body;
+
+    // Envia uma resposta com os dados do formulário submetido
+    res.send(`
+        Formulário enviado com sucesso! <br>
+        Nome: ${name}, Email: ${email}`
+    );
+};
+~~~
+
+~~~javascript
+// arquivo: contollers/homeController.js
+
+// Define uma função para a rota raiz ('/')
+exports.index = (require, response) => {
+    // Envia uma mensagem de boas-vindas como resposta
+    response.send('Bem-vindo ao Express!');
+};
+~~~
+
+Definindo o Router:
+
+~~~javascript
+// routers.js
+
+// Importa o módulo 'express'
+const express = require('express');
+
+// Cria uma instância do roteador do Express
+const route = express.Router();
+
+// Importa os controladores definidos anteriormente
+const homeController = require('./controllers/homeController');
+const formController = require('./controllers/formController');
+const contatoController = require('./controllers/contatoController');
+
+// Define a rota para a raiz ('/') usando o método GET
+route.get('/', homeController.index);
+
+// Define a rota para '/form' usando o método GET e associa ao controlador 'formController.index'
+route.get('/form', formController.index);
+// Define a rota para '/form' usando o método POST e associa ao controlador 'formController.form'
+route.post('/form', formController.form);
+
+// Define a rota para '/contato' usando o método GET e associa ao controlador 'contatoController.index'
+route.get('/contato', contatoController.index);
+
+// Exporta o roteador para ser utilizado no arquivo principal
+module.exports = route;
+~~~
+
+Usando o Router no Arquivo Principal:
+
+~~~javascript
+// arquivo: app.js
+
+// Importa o módulo 'express'
+const express = require('express');
+
+// Cria uma instância do aplicativo Express
+const app = express();
+
+// Importa as rotas definidas no arquivo 'routers.js'
+const routes = require('./routes');
+
+// Define o middleware 'express.urlencoded()' para processar dados de formulário HTML
+app.use(express.urlencoded({ extended: true }));
+
+// Utiliza as rotas definidas
+app.use(routes);
+
+// Define a porta em que o servidor irá ouvir
+const port = 3000;
+
+// Inicia o servidor Express para escutar na porta especificada
+app.listen(port, () => {
+    console.log(`Servidor Express está rodando em http://localhost:${port}`);
+});
+~~~
+
+### Express Views
+
+Express Views refere-se à capacidade do Express.js de renderizar e exibir páginas HTML, geralmente usando um mecanismo de modelo como o EJS (Embedded JavaScript) ou o Pug (antigo Jade). Isso permite que você crie páginas da web dinâmicas, onde o conteúdo pode ser gerado dinamicamente com base em dados ou lógica de negócios.
+
+Configuração do Express Views com EJS:
+
+Instalar o EJS:
+Antes de começar, você precisa instalar o pacote EJS em seu projeto Node.js. Você pode fazer isso usando o npm:
+
+~~~bash
+npm ejs
+~~~
+
+Configurar o Express:
+No seu arquivo principal do Express (geralmente `app.js` ou `index.js`), configure o Express para usar o EJS como mecanismo de modelo:
+
+~~~javascript
+const express = require('express');
+const app = express();
+
+// Configurar o Express para usar o EJS
+app.set('view engine', 'ejs');
+~~~
+
+Criar uma Rota:
+Crie uma rota no Express que renderizará e exibirá uma página EJS:
+
+~~~javascript
+// Rota para renderizar a página inicial
+app.get('/', (req, res) => {
+    const data = { title: 'Página Inicial', message: 'Bem-vindo ao meu site!' };
+    res.render('index', data);
+});
+~~~
+
+Criar a Página EJS:
+Crie um arquivo de modelo EJS na pasta views. Por exemplo, crie um arquivo chamado index.ejs:
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= message %></h1>
+</body>
+</html>
+~~~
+
+Renderização de Página:
+Quando a rota é acessada, o Express renderizará a página EJS e enviará o HTML resultante como resposta para o navegador.
+
+Exemplo mais detalhado:
+
+Viwes EJS
+
+~~~html
+<!-- arquivo:  src/views/form.ejs-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <h1>Documento Form EJS renderizado!</h1>
+
+    <form action="/form" method="POST">
+        <label for="name">Nome:</label><br>
+        <input type="text" name="name"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" name="email"><br><br>
+        <button>Enviar</button>
+    </form>
+</body>
+
+</html>
+~~~
+
+~~~html
+<!-- arquivo:  src/views/formData.ejs-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-Form</title>
+</head>
+<body>
+    <h1>Documento Data-Form EJS renderizado!</h1>
+
+    <p>Formulário enviado com sucesso!</p>
+    <p>Nome: <%= name %></p>
+    <p>Email: <%= email %></p>
+</body>
+</html>
+~~~
+
+~~~html
+<!-- arquivo:  src/views/index.ejs-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Documento EJS renderizado!</h1>
+
+    <a href="./form" target="_blank">form</a><br>
+</body>
+</html>
+~~~
+
+Controllers:
+
+~~~javascript
+// arquivo: src/controllers/formController.js
+
+exports.index = (req, res) => {
+    res.render('form');
+};
+
+exports.form = (req, res) => {
+    const { name, email } = req.body;
+
+    res.render('formData', {name, email});
+};
+~~~
+
+~~~javascript
+// arquivo: src/controllers/homeController.js
+
+exports.index = (req, res) => {
+    res.render('index');
+};
+~~~
+
+Definindo o Router:
+
+~~~javascript
+// arquivo: routes.js
+
+const express = require('express');
+const route = express.Router();
+
+const homeController = require('./src/controllers/homeController');
+const formController = require('./src/controllers/formController');
+
+route.get('/', homeController.index);
+
+route.get('/form', formController.index);
+route.post('/form', formController.form);
+
+module.exports = route;
+~~~
+
+Usando o Router no Arquivo Principal:
+
+~~~javascript
+// arquivo: app.js
+
+const express = require('express');
+const path = require('path');
+const app = express();
+const routes = require('./routes');
+
+app.use(express.urlencoded({ exetended: true }));
+app.set('views', path.resolve(__dirname, 'src', 'views'));
+app.set('view engine', 'ejs');
+
+app.use(routes);
+
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Servidor Express está rodando em http://localhost:${port}`);
+});
+~~~
+
 ## Projetos e exercícios praticos
 
 s projetos e exericicos práticos podem ser encontrados em: `projetos/10_` ou [Clicando Aqui](../projetos/10_/).
