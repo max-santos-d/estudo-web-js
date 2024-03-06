@@ -295,4 +295,4 @@ Exercício para fixação de conteúdo com o desenvolvimetno de um algorítimo p
 
 ## Exercicio 02 - Validação de formulário utilizando Classes
 
-Exercício para fixação de conteúdo com o desenvolvimetno de um projeto para validação de um formulário utilizando Classes, disponível no caminho `projetos/07_/Exercicio2_validacaoForm` ou [clicando aqui](https://github.com/max-santos-d/estudo-web-js/tree/main/projetos/7_/Exercicio2_validacaoForm).
+Exercício para fixação de conteúdo com o desenvolvimetno de um projeto para validação de um formulário utilizando Classes, disponível no caminho `projetos/07_/Exercicio2_validacaoForm` ou [clicando aqui](../projetos/07_/Exercicio2_validacaoForm/).
