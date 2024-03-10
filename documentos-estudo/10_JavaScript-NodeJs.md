@@ -24,6 +24,8 @@
     - [Express Router](#express-router)
     - [Express Router + Controllers](#express-router--controllers)
     - [Express Views](#express-views)
+    - [Passos para Configurar Arquivos Estáticos no Express:](#passos-para-configurar-arquivos-estáticos-no-express)
+    - [Webpack + Express](#webpack--express)
   - [Projetos e exercícios praticos](#projetos-e-exercícios-praticos)
 
 ## Módulos
@@ -895,7 +897,7 @@ Quando a rota é acessada, o Express renderizará a página EJS e enviará o HTM
 
 Exemplo mais detalhado:
 
-Viwes EJS
+Views EJS
 
 ~~~html
 <!-- arquivo:  src/views/form.ejs-->
@@ -1026,6 +1028,41 @@ app.listen(port, () => {
 });
 ~~~
 
+### Passos para Configurar Arquivos Estáticos no Express:
+
+1. **Criar Pasta para Arquivos Estáticos:**
+   Crie uma pasta no seu projeto para armazenar os arquivos estáticos, por exemplo, uma pasta chamada `public`.
+
+2. **Mover Arquivos Estáticos:**
+   Mova todos os arquivos estáticos (HTML, CSS, JavaScript, imagens, etc.) para dentro da pasta `public`.
+
+3. **Configurar o Express:**
+   No seu arquivo principal do Express (geralmente `app.js` ou `index.js`), configure o Express para servir arquivos estáticos da pasta `public` usando o middleware `express.static`:
+
+   ~~~javascript
+   const express = require('express');
+   const path = require('path');
+   const app = express();
+
+   // Configurar o Express para servir arquivos estáticos
+   app.use(express.static(path.resolve(__dirname, 'public')));
+   ~~~
+
+   Esta linha de código diz ao Express para servir os arquivos estáticos da pasta public quando uma solicitação for feita a partir do cliente.
+
+4. **Acessando os Arquivos Estáticos:**
+   Agora, os arquivos estáticos podem ser acessados diretamente a partir do cliente. Por exemplo, se você tiver um arquivo style.css na pasta public/css, ele pode ser acessado em http://localhost:3000/css/style.css (se estiver executando o servidor localmente na porta 3000).
+
+Benefícios:
+
+- **Simplicidade**: A configuração de arquivos estáticos no Express é fácil e direta.
+- **Desempenho**: Servir arquivos estáticos diretamente pelo servidor do Express pode melhorar o desempenho, especialmente para recursos comuns acessados por várias páginas.
+- **Organização**: Separar os arquivos estáticos em uma pasta específica como `public` ajuda a organizar e manter o projeto de forma limpa e estruturada.
+
+### Webpack + Express
+
+Para mesclar arquivos de um modelo Webpack em um aplicativo Express, você pode configurar o Webpack para compilar e gerar os arquivos estáticos, e então configurar o Express para servir esses arquivos estáticos. Aqui está um exemplo de como fazer isso: [Clique aqui](../projetos/10_/exercicio3_express/).
+
 ## Projetos e exercícios praticos
 
-s projetos e exericicos práticos podem ser encontrados em: `projetos/10_` ou [Clicando Aqui](../projetos/10_/).
+Os projetos e exericicos práticos podem ser encontrados em: `projetos/10_` ou [Clicando Aqui](../projetos/10_/).
