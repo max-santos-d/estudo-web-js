@@ -25,6 +25,8 @@
     - [Express Router + Controllers](#express-router--controllers)
     - [Express Views](#express-views)
     - [Passos para Configurar Arquivos Estáticos no Express:](#passos-para-configurar-arquivos-estáticos-no-express)
+    - [Express Middlewares em JavaScript](#express-middlewares-em-javascript)
+      - [Características dos Middlewares:](#características-dos-middlewares)
     - [Webpack + Express](#webpack--express)
   - [Projetos e exercícios praticos](#projetos-e-exercícios-praticos)
 
@@ -1058,6 +1060,230 @@ Benefícios:
 - **Simplicidade**: A configuração de arquivos estáticos no Express é fácil e direta.
 - **Desempenho**: Servir arquivos estáticos diretamente pelo servidor do Express pode melhorar o desempenho, especialmente para recursos comuns acessados por várias páginas.
 - **Organização**: Separar os arquivos estáticos em uma pasta específica como `public` ajuda a organizar e manter o projeto de forma limpa e estruturada.
+
+### Express Middlewares em JavaScript
+
+Os middlewares no Express são funções que têm acesso aos objetos de solicitação (req), resposta (res) e à próxima função de middleware no ciclo de solicitação-resposta do aplicativo. Eles são usados ​​para executar tarefas específicas, manipular solicitações HTTP e adicionar funcionalidades ao aplicativo Express.
+
+#### Características dos Middlewares:
+
+1. **Acesso aos Objetos de Solicitação e Resposta:**
+   - Os middlewares recebem os objetos de solicitação (`req`) e resposta (`res`) como parâmetros. 
+   - Isso permite que eles inspecionem os dados da solicitação e preparem uma resposta para o cliente.
+
+2. **Próxima Função de Middleware:**
+   - Todo middleware tem acesso a uma terceira função chamada `next`.
+   - Esta função é usada para passar o controle para o próximo middleware no ciclo de solicitação-resposta.
+
+3. **Manipulação de Solicitações HTTP:**
+   - Os middlewares são usados ​​para executar várias tarefas relacionadas ao processamento de solicitações HTTP.
+   - Isso inclui validação de dados, autenticação de usuários, manipulação de erros, entre outras tarefas.
+
+4. **Adição de Funcionalidades:**
+   - Os middlewares também são usados ​​para adicionar funcionalidades adicionais ao aplicativo Express.
+   - Por exemplo, eles podem lidar com sessões de usuário, compactar respostas, definir cabeçalhos de segurança, entre outras coisas.
+
+Em resumo, os middlewares no Express são uma parte fundamental do desenvolvimento de aplicativos web. Eles permitem que você organize e manipule o fluxo de solicitação e resposta de maneira flexível e modular, facilitando o desenvolvimento de aplicativos robustos e escaláveis.
+
+
+Neste exemplo, vamos criar um aplicativo de lista de tarefas (to-do list) que permite adicionar e visualizar tarefas. Vamos criar três middlewares:
+
+- `logger`: Para registrar todas as solicitações HTTP recebidas pelo servidor.
+- `authenticator`: Para simular a autenticação do usuário. Este middleware verificará se o cabeçalho Authorization está presente na solicitação.
+- `errorHandler`: Para lidar com erros de servidor, como erros 404 (recurso não encontrado) e erros internos do servidor.
+
+Vamos estruturar o projeto da seguinte forma:
+
+~~~txt
+exercicio4_middlewares/
+│   
+├── src/
+│   ├── controllers
+│   │   └── taskController.js
+│   └── middlewares  
+│       ├── logger.js
+│       ├── authenticator.js
+│       └── errorHandler.js
+│
+├── app.js
+├── routes.js
+└── package.json
+~~~
+
+Aqui está o código para cada arquivo:
+
+`app.js`:
+
+~~~javascript
+const express = require('express');
+const app = express();
+const routes = require('./routes');
+
+const loggerMiddleware = require('./src/middlewares/logger');
+const authMiddleware = require('./src/middlewares/authenticator');
+const errorHandlerMiddleware = require('./src/middlewares/errorHandler');
+
+app.use(express.urlencoded({ exetended: true }));
+
+// Middlewares globais
+app.use(loggerMiddleware);
+app.use(authMiddleware);
+
+// Rotas
+app.use(routes);
+
+// Middleware de tratamento de erros
+app.use(errorHandlerMiddleware);
+
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Servidor Express está rodando em http://localhost:${port}`);
+});
+~~~
+
+`routes.js`:
+
+~~~javascript
+const express = require('express');
+const router = express.Router();
+
+const taskController = require('./src/controllers/taksController');
+
+//Rota index
+router.get('/', taskController.index)
+
+// Rota para listar tarefas
+router.get('/tasks', taskController.listTasks);
+
+// Rota para adicionar tarefa
+router.post('/', taskController.addTask);
+
+module.exports = router;
+~~~
+
+`src/middlewares/logger.js`:
+
+~~~javascript
+const loggerMiddleware = (req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+};
+
+module.exports = loggerMiddleware;
+
+~~~
+
+`src/middlewares/authenticator.js`:
+
+~~~javascript
+const authMiddleware = (req, res, next) => {
+    // const token = req.headers.authorization;
+    // if (!token) {
+    //     return res.status(401).send('Token de autenticação ausente');
+    // }
+    // // Simulação de autenticação
+    // if (token !== 'meuTokenSecreto') {
+    //     return res.status(403).send('Token de autenticação inválido');
+    // }
+    console.log('Autenticação de Token!')
+    next();
+};
+
+module.exports = authMiddleware;
+
+~~~
+
+`src/middlewares/errorHandler.js`:
+
+~~~javascript
+const errorHandlerMiddleware = (err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Erro interno do servidor');
+};
+
+module.exports = errorHandlerMiddleware;
+
+~~~
+
+`controllers/taskController.js`:
+
+~~~javascript
+const tasks = [];
+
+exports.index = (req, res) => {
+  const formHtml = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Adicionar Tarefa</title>
+    </head>
+    <body>
+      <h1>Adicionar Tarefa</h1>
+      <form action="/" method="POST">
+        <label for="task">Tarefa:</label>
+        <input type="text" id="task" name="task" required>
+        <button type="submit">Adicionar</button>
+      </form>
+    </body>
+    </html>
+  `;
+
+  res.send(formHtml);
+};
+
+// Adiciona uma nova tarefa
+exports.addTask = (req, res) => {
+  const { task } = req.body;
+  tasks.push(task);
+  res.status(201).send('Tarefa adicionada com sucesso');
+};
+
+// Lista todas as tarefas
+exports.listTasks = (req, res) => {
+  res.json(tasks);
+};
+
+~~~
+
+O middleware pode ser incrementado na chamada de rota, podendo flexibilizar a sua chamada.
+
+Aqui está o código do middleware:
+
+~~~javascript
+// src/middlewares/logRoute.js
+
+const logRouteMiddleware = (req, res, next) => {
+  console.log(`Rota acessada: ${req.method} ${req.url}`);
+  next();
+};
+
+module.exports = logRouteMiddleware;
+~~~
+
+Agora, vamos usar este middleware em nosso aplicativo Express. Vou incluir este middleware na rota index `/` como um exemplo. Aqui está como ficaria o código:
+
+~~~javascript
+const express = require('express');
+const router = express.Router();
+
+const taskController = require('./src/controllers/taksController');
+
+const logRouteMiddleware = require('./src/middleware/logRoute');
+
+//Rota index
+router.get('/', logRouteMiddleware, taskController.index)
+
+// Rota para listar tarefas
+router.get('/tasks', taskController.listTasks);
+
+// Rota para adicionar tarefa
+router.post('/', taskController.addTask);
+
+module.exports = router;
+
+~~~
 
 ### Webpack + Express
 
