@@ -14,6 +14,10 @@
   - [NPM - Node Package Manager](#npm---node-package-manager)
   - [File System (FS)](#file-system-fs)
     - [Funcionalidades Principais do FS](#funcionalidades-principais-do-fs)
+      - [Exemplo 01 - File System](#exemplo-01---file-system)
+      - [Exemplo 02 - File System](#exemplo-02---file-system)
+      - [Exemplo 03 - File System](#exemplo-03---file-system)
+      - [Exemplo 04 - File System](#exemplo-04---file-system)
   - [Express](#express)
     - [Recursos Principais do Express.js](#recursos-principais-do-expressjs)
     - [Renderizando HTML no express](#renderizando-html-no-express)
@@ -26,7 +30,7 @@
     - [Express Views](#express-views)
     - [Passos para Configurar Arquivos Estáticos no Express:](#passos-para-configurar-arquivos-estáticos-no-express)
     - [Express Middlewares em JavaScript](#express-middlewares-em-javascript)
-      - [Características dos Middlewares:](#características-dos-middlewares)
+      - [Características dos Middlewares](#características-dos-middlewares)
     - [Webpack + Express](#webpack--express)
   - [Projetos e exercícios praticos](#projetos-e-exercícios-praticos)
 
@@ -265,6 +269,39 @@ O módulo File System (FS) é uma parte fundamental do Node.js que permite inter
 
 Exemplo de Uso
 
+#### Exemplo 01 - File System
+
+Abaixo está um exemplo de código em JavaScript que usa o módulo File System do Node.js para criar um arquivo:
+
+~~~javascript
+// Importa o módulo 'fs' para manipulação de arquivos do sistema
+const fs = require('fs');
+
+// Importa o módulo 'path' para manipulação de caminhos de arquivo
+const path = require('path');
+
+// Caminho do arquivo a ser criado
+const caminhoArquivo = path.resolve(__dirname, 'novo_arquivo.txt');
+
+
+// Conteúdo do arquivo a ser criado
+const conteudoArquivo = 'Este é um novo arquivo criado usando Node.js!';
+
+// Cria o arquivo
+fs.writeFile(caminhoArquivo, conteudoArquivo, (err) => {
+    if (err) {
+        console.error('Erro ao criar o arquivo', err);
+        return;
+    }
+    console.log('Arquivo criado com sucesso!');
+});
+
+~~~
+
+Este código utiliza a função fs.writeFile() para criar um arquivo no caminho especificado com o conteúdo fornecido. Se o arquivo já existir, ele será substituído pelo novo conteúdo. Se o arquivo não existir, ele será criado.
+
+#### Exemplo 02 - File System
+
 Aqui está um exemplo simples que lê o conteúdo de um arquivo, adiciona uma linha e escreve de volta no mesmo arquivo usando operações assíncronas:
 
 ~~~javascript
@@ -283,6 +320,182 @@ fs.readFile('arquivo.txt', 'utf8', (err, data) => {
         console.log('Conteúdo do arquivo atualizado com sucesso.');
     });
 });
+~~~
+
+#### Exemplo 03 - File System
+
+Abaixo está um exemplo de código em JavaScript que usa a funcionalidade do sistema de arquivos (File System) do Node.js para listar todos os arquivos em um diretório, utilizando recursão mútua:
+
+~~~javascript
+// Importa o módulo 'fs' para manipulação de arquivos do sistema
+const fs = require('fs');
+// Importa o módulo 'path' para manipulação de caminhos de arquivo
+const path = require('path');
+
+// Função para listar todos os arquivos em um diretório de forma recursiva
+function listarArquivosDiretorio(diretorio) {
+    // Lê o conteúdo do diretório
+    fs.readdir(diretorio, (err, arquivos) => {
+        if (err) {
+            console.error('Erro ao ler o diretório', err);
+            return;
+        }
+
+        // Itera sobre cada arquivo encontrado no diretório
+        arquivos.forEach(arquivo => {
+            // Cria o caminho completo para o arquivo
+            const caminhoArquivo = path.join(diretorio, arquivo);
+
+            // Obtém informações sobre o arquivo
+            fs.stat(caminhoArquivo, (erro, estatisticas) => {
+                if (erro) {
+                    console.error('Erro ao obter informações do arquivo', caminhoArquivo, erro);
+                    return;
+                }
+
+                // Verifica se o arquivo é um diretório
+                if (estatisticas.isDirectory()) {
+                    // Se for um diretório, chama a função recursivamente
+                    listarArquivosDiretorio(caminhoArquivo);
+                } else {
+                    // Se for um arquivo, imprime o caminho do arquivo
+                    console.log(caminhoArquivo);
+                }
+            });
+        });
+    });
+}
+
+// Chamada inicial para listar arquivos no diretório atual
+listarArquivosDiretorio(__dirname); // __dirname contém o caminho do diretório atual
+~~~
+
+Este código utiliza a função fs.readdir() para ler o conteúdo de um diretório e fs.stat() para obter informações sobre cada arquivo encontrado. Em seguida, verifica se cada item é um diretório ou um arquivo. Se for um diretório, a função é chamada recursivamente para listar os arquivos dentro desse diretório. Se for um arquivo, o caminho do arquivo é impresso.
+
+#### Exemplo 04 - File System
+
+Mini projeto que simula um sistema de cadastro de usuários usando o sistema de arquivos do Node.js como um banco de dados. Neste projeto, vamos criar funções para criar, ler, atualizar e deletar usuários armazenados em um arquivo JSON com o File System.
+
+~~~javascript
+// Arquivo: principal.js
+
+const fs = require('fs').promises; // Importa o módulo 'fs' com funções promisificadas para manipulação de arquivos
+const path = require('path'); // Importa o módulo 'path' para manipulação de caminhos de arquivo
+
+// Caminho do arquivo de dados
+const arquivoDados = path.join(__dirname, 'dados.json');
+
+// Função assíncrona para carregar os dados do arquivo
+async function carregarDados() {
+    try {
+        const dados = await fs.readFile(arquivoDados, 'utf8'); // Lê os dados do arquivo
+        return JSON.parse(dados); // Retorna os dados parseados do formato JSON para um objeto JavaScript
+    } catch (err) {
+        // Se o arquivo não existir ou houver um erro ao ler o arquivo, retorna um array vazio
+        return [];
+    }
+}
+
+// Função assíncrona para salvar os dados no arquivo
+async function salvarDados(dados) {
+    await fs.writeFile(arquivoDados, JSON.stringify(dados, null, 2)); // Escreve os dados no arquivo no formato JSON com espaçamento para legibilidade
+}
+
+// Função assíncrona para adicionar um novo usuário, verificando se o email já existe
+async function adicionarUsuario(nome, email) {
+    const dados = await carregarDados(); // Carrega os dados atuais do arquivo
+
+    // Verifica se o email já existe na lista de usuários
+    const emailExistente = dados.some(usuario => usuario.email === email);
+    if (emailExistente) {
+        console.log('Erro: Este email já está cadastrado.');
+        return;
+    }
+
+    // Se o email não existir, adiciona o novo usuário
+    const novoUsuario = { nome, email }; // Cria um novo objeto de usuário
+    dados.push(novoUsuario); // Adiciona o novo usuário aos dados existentes
+    await salvarDados(dados); // Salva os dados atualizados no arquivo
+}
+
+// Função assíncrona para listar todos os usuários
+async function listarUsuarios() {
+    return await carregarDados(); // Retorna os dados do arquivo (todos os usuários)
+}
+
+// Função assíncrona para atualizar os dados de um usuário pelo email
+async function atualizarUsuarioPorEmail(email, novosDados) {
+    const dados = await carregarDados(); // Carrega os dados atuais do arquivo
+    const index = dados.findIndex(usuario => usuario.email === email); // Encontra o índice do usuário com o email especificado
+    if (index !== -1) {
+        dados[index] = { ...dados[index], ...novosDados }; // Atualiza os dados do usuário com os novos dados
+        await salvarDados(dados); // Salva os dados atualizados no arquivo
+        return true; // Indica que o usuário foi atualizado com sucesso
+    }
+    return false; // Indica que o usuário não foi encontrado
+}
+
+// Função assíncrona para excluir um usuário pelo email
+async function excluirUsuarioPorEmail(email) {
+    const dados = await carregarDados(); // Carrega os dados atuais do arquivo
+    const novoArray = dados.filter(usuario => usuario.email !== email); // Filtra os usuários excluindo aquele com o email especificado
+    if (dados.length !== novoArray.length) {
+        await salvarDados(novoArray); // Salva os dados atualizados (usuário excluído) no arquivo
+        return true; // Indica que o usuário foi excluído com sucesso
+    }
+    return false; // Indica que o usuário não foi encontrado
+}
+
+module.exports = {
+    adicionarUsuario,
+    listarUsuarios,
+    atualizarUsuarioPorEmail,
+    excluirUsuarioPorEmail
+};
+~~~
+
+Neste arquivo `principal.js`, as funções principais:
+
+- `carregarDados()`: Carrega os dados do arquivo JSON para um array.
+- `salvarDados(dados)`: Salva os dados no arquivo JSON.
+- `adicionarUsuario(nome, email)`: Adiciona um novo usuário, após verificar se o email já está cadastrado,  ao arquivo JSON.
+- `listarUsuarios()`: Lista todos os usuários armazenados no arquivo JSON.
+- `atualizarUsuarioPorEmail(email, novosDados)`: Atualiza os dados de um usuário pelo email.
+- `excluirUsuarioPorEmail(email)`: Exclui um usuário pelo email.
+
+Neste arquivo `teste.js`, importa-se as funções principais do arquivo principal `principal.js` usando `require`. Em seguida, definimos uma função assíncrona `teste()` para realizar as operações de teste, como adicionar, listar, atualizar e excluir usuários. Finalmente, chama-se a função `teste()` para executar os testes.
+
+~~~javascript
+// Arquivo: teste.js
+
+// Importa as funções principais do arquivo principal
+const {
+    adicionarUsuario,
+    listarUsuarios,
+    atualizarUsuarioPorEmail,
+    excluirUsuarioPorEmail
+} = require('./principal');
+
+// Função assíncrona para realizar operações de teste
+async function teste() {
+    // Adiciona dois usuários
+    await adicionarUsuario('João', 'joao@example.com');
+    await adicionarUsuario('Maria', 'maria@example.com');
+
+    // Lista todos os usuários
+    console.log(await listarUsuarios());
+
+    // Atualiza o nome do usuário com o email 'joao@example.com'
+    await atualizarUsuarioPorEmail('joao@example.com', { nome: 'João Silva' });
+    console.log(await listarUsuarios());
+
+    // Exclui o usuário com o email 'maria@example.com'
+    await excluirUsuarioPorEmail('maria@example.com');
+    console.log(await listarUsuarios());
+}
+
+// Chama a função de teste
+teste();
 ~~~
 
 ## Express
@@ -1065,7 +1278,7 @@ Benefícios:
 
 Os middlewares no Express são funções que têm acesso aos objetos de solicitação (req), resposta (res) e à próxima função de middleware no ciclo de solicitação-resposta do aplicativo. Eles são usados ​​para executar tarefas específicas, manipular solicitações HTTP e adicionar funcionalidades ao aplicativo Express.
 
-#### Características dos Middlewares:
+#### Características dos Middlewares
 
 1. **Acesso aos Objetos de Solicitação e Resposta:**
    - Os middlewares recebem os objetos de solicitação (`req`) e resposta (`res`) como parâmetros. 
@@ -1290,5 +1503,7 @@ module.exports = router;
 Para mesclar arquivos de um modelo Webpack em um aplicativo Express, você pode configurar o Webpack para compilar e gerar os arquivos estáticos, e então configurar o Express para servir esses arquivos estáticos. Aqui está um exemplo de como configurar todos os arquivos e diretórios: [Clique aqui](../projetos/10_/exercicio3_express/).
 
 ## Projetos e exercícios praticos
+
+
 
 Os projetos e exericicos práticos podem ser encontrados em: `projetos/10_` ou [Clicando Aqui](../projetos/10_/).
