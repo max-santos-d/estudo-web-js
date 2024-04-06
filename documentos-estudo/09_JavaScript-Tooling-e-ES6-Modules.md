@@ -264,3 +264,5 @@ Neste exemplo, `minhaFuncao` e minhaVariavel são importadas de `meuModulo.js` p
 ## Projetos e exercicios praticos
 
 Os projetos e exericicos práticos podem ser encontrados em `projetos/09_` ou [Clicando Aqui](../projetos/09_/).
+
+Segue a programação do modelo explicado do babel:
