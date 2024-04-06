@@ -1,6 +1,6 @@
 # Implementação do Webpack em um Projeto Express
 
-## Passo a Passo:
+## Passo a Passo
 
 1. **Criar Pasta `frontend`:**
    Crie uma nova pasta chamada `frontend` na raiz do seu projeto Express, onde serão adicionados os arquivos do projeto modelo relacionados ao Webpack.
@@ -38,7 +38,7 @@
 12. **Iniciar Nodemon e Webpack:**
     Inicie o servidor do Nodemon com o comando `npm start` e o Webpack em modo de observação com o comando `npm run dev`.
 
-### Estrutura de Arquivos:
+### Estrutura de Arquivos
 
 ~~~txt
 projeto

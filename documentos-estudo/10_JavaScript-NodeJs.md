@@ -32,6 +32,7 @@
     - [Express Middlewares em JavaScript](#express-middlewares-em-javascript)
       - [Características dos Middlewares](#características-dos-middlewares)
     - [Webpack + Express](#webpack--express)
+    - [Criar um servidor MongoDB](#criar-um-servidor-mongodb)
   - [Projetos e exercícios praticos](#projetos-e-exercícios-praticos)
 
 ## Módulos
@@ -1498,6 +1499,17 @@ module.exports = router;
 ### Webpack + Express
 
 Para mesclar arquivos de um modelo Webpack em um aplicativo Express, você pode configurar o Webpack para compilar e gerar os arquivos estáticos, e então configurar o Express para servir esses arquivos estáticos. Aqui está um exemplo de como configurar todos os arquivos e diretórios: [Clique aqui](../projetos/10_/exercicio3_express/).
+
+### Criar um servidor MongoDB
+
+Existem várias maneiras de criar e configurar um servidor MongoDB, dependendo das necessidades e preferências do desenvolvedor. Abaixo estão algumas das maneiras mais comuns de criar um servidor MongoDB:
+
+- **MongoDB Atlas**: MongoDB Atlas é um serviço de banco de dados gerenciado na nuvem oferecido pela MongoDB. Ele permite que você crie e gerencie clusters de banco de dados MongoDB de forma rápida e fácil, sem a necessidade de configurar ou manter a infraestrutura do servidor. O MongoDB Atlas oferece recursos como dimensionamento automático, backups automáticos, segurança avançada e muito mais.
+- **Instalação local**: Você pode baixar e instalar o MongoDB diretamente em seu próprio servidor ou computador local. A MongoDB oferece pacotes de instalação para várias plataformas, incluindo Windows, macOS e Linux. Depois de instalar o MongoDB, você pode configurar e iniciar o servidor MongoDB localmente para uso em sua aplicação.
+- **Docker**: Você pode usar contêineres Docker para criar e executar um servidor MongoDB de forma isolada em seu ambiente de desenvolvimento ou produção. Isso oferece flexibilidade e facilidade na implantação e gerenciamento do servidor MongoDB, além de garantir que o ambiente seja consistente em diferentes plataformas.
+- **Implantação em provedores de nuvem**: Além do MongoDB Atlas, você pode implantar um servidor MongoDB em provedores de nuvem como AWS, Google Cloud Platform (GCP) e Microsoft Azure. Esses provedores de nuvem oferecem serviços para criar e gerenciar instâncias de máquinas virtuais ou contêineres onde você pode instalar e executar o MongoDB.
+- **Utilizando pacotes de hospedagem**: Algumas empresas de hospedagem web oferecem serviços de hospedagem específicos para o MongoDB, permitindo que você crie e gerencie bancos de dados MongoDB em seus servidores compartilhados ou dedicados.
+- **Configuração manual em servidores**: Em alguns casos, você pode preferir configurar manualmente um servidor MongoDB em um servidor dedicado ou virtualizado. Isso oferece controle total sobre a configuração do servidor, mas requer mais conhecimento técnico e esforço para configurar e manter o servidor.
 
 ## Projetos e exercícios praticos
 
