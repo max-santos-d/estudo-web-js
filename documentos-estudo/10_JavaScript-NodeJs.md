@@ -24,11 +24,11 @@
     - [Express + Nodemon](#express--nodemon)
     - [Exemplo de Uso do Express com o Nodemon](#exemplo-de-uso-do-express-com-o-nodemon)
     - [Express - `req.params`, `req.query` e `req.body`](#express---reqparams-reqquery-e-reqbody)
-    - [Exemplo com renderização de HTML e submissão e captação dos dados de formulário:](#exemplo-com-renderização-de-html-e-submissão-e-captação-dos-dados-de-formulário)
+    - [Exemplo com renderização de HTML e submissão e captação dos dados de formulário](#exemplo-com-renderização-de-html-e-submissão-e-captação-dos-dados-de-formulário)
     - [Express Router](#express-router)
     - [Express Router + Controllers](#express-router--controllers)
     - [Express Views](#express-views)
-    - [Passos para Configurar Arquivos Estáticos no Express:](#passos-para-configurar-arquivos-estáticos-no-express)
+    - [Passos para Configurar Arquivos Estáticos no Express](#passos-para-configurar-arquivos-estáticos-no-express)
     - [Express Middlewares em JavaScript](#express-middlewares-em-javascript)
       - [Características dos Middlewares](#características-dos-middlewares)
     - [Webpack + Express](#webpack--express)
@@ -511,7 +511,7 @@ O Express.js é um framework web minimalista e flexível para Node.js, projetado
 - **Gerenciamento de Sessões**: O Express oferece suporte a vários middlewares para o gerenciamento de sessões e cookies, permitindo a persistência de dados entre solicitações do cliente.
 - **Recursos Avançados**: Além disso, o Express possui uma grande variedade de recursos avançados, como roteamento modular, manipulação de erros, compactação de resposta, negociação de conteúdo, entre outros.
 
-**Exemplo de Uso Básico**
+Exemplo de Uso Básico
 
 Aqui está um exemplo simples de um aplicativo Express que cria um servidor HTTP e responde a solicitações GET na raiz:
 
@@ -617,7 +617,6 @@ npm start
 
 Isso iniciará seu servidor Express e o Nodemon estará observando as alterações nos arquivos do projeto. Sempre que você fizer uma alteração e salvar um arquivo, o Nodemon reiniciará automaticamente o servidor para refletir as alterações.
 
-
 ### Exemplo de Uso do Express com o Nodemon
 
 Aqui está um exemplo básico de como usar o Express com o Nodemon:
@@ -715,10 +714,9 @@ app.post('/api/users', (req, res) => {
 });
 ~~~
 
-
 Neste exemplo, `express.json()` é usado para analisar automaticamente o corpo da solicitação como JSON, enquanto `express.urlencoded()` é usado para analisar corpos de solicitação codificados como URL. Isso permite acessar os dados enviados no corpo da solicitação através do `req.body` na rota especificada.
 
-### Exemplo com renderização de HTML e submissão e captação dos dados de formulário:
+### Exemplo com renderização de HTML e submissão e captação dos dados de formulário
 
 ~~~javascript
 const express = require('express');
@@ -905,7 +903,7 @@ app.listen(port, () => {
 });
 ~~~
 
-**Exemplo com maior complexidade**
+Exemplo com maior complexidade
 
 Definindo os Controllers:
 
@@ -1243,7 +1241,7 @@ app.listen(port, () => {
 });
 ~~~
 
-### Passos para Configurar Arquivos Estáticos no Express:
+### Passos para Configurar Arquivos Estáticos no Express
 
 1. **Criar Pasta para Arquivos Estáticos:**
    Crie uma pasta no seu projeto para armazenar os arquivos estáticos, por exemplo, uma pasta chamada `public`.
@@ -1266,7 +1264,7 @@ app.listen(port, () => {
    Esta linha de código diz ao Express para servir os arquivos estáticos da pasta public quando uma solicitação for feita a partir do cliente.
 
 4. **Acessando os Arquivos Estáticos:**
-   Agora, os arquivos estáticos podem ser acessados diretamente a partir do cliente. Por exemplo, se você tiver um arquivo style.css na pasta public/css, ele pode ser acessado em http://localhost:3000/css/style.css (se estiver executando o servidor localmente na porta 3000).
+   Agora, os arquivos estáticos podem ser acessados diretamente a partir do cliente. Por exemplo, se você tiver um arquivo style.css na pasta `public/css`, ele pode ser acessado em `http://localhost:3000/css/style.css` (se estiver executando o servidor localmente na porta 3000).
 
 Benefícios:
 
@@ -1281,7 +1279,7 @@ Os middlewares no Express são funções que têm acesso aos objetos de solicita
 #### Características dos Middlewares
 
 1. **Acesso aos Objetos de Solicitação e Resposta:**
-   - Os middlewares recebem os objetos de solicitação (`req`) e resposta (`res`) como parâmetros. 
+   - Os middlewares recebem os objetos de solicitação (`req`) e resposta (`res`) como parâmetros.
    - Isso permite que eles inspecionem os dados da solicitação e preparem uma resposta para o cliente.
 
 2. **Próxima Função de Middleware:**
@@ -1297,7 +1295,6 @@ Os middlewares no Express são funções que têm acesso aos objetos de solicita
    - Por exemplo, eles podem lidar com sessões de usuário, compactar respostas, definir cabeçalhos de segurança, entre outras coisas.
 
 Em resumo, os middlewares no Express são uma parte fundamental do desenvolvimento de aplicativos web. Eles permitem que você organize e manipule o fluxo de solicitação e resposta de maneira flexível e modular, facilitando o desenvolvimento de aplicativos robustos e escaláveis.
-
 
 Neste exemplo, vamos criar um aplicativo de lista de tarefas (to-do list) que permite adicionar e visualizar tarefas. Vamos criar três middlewares:
 
@@ -1503,7 +1500,5 @@ module.exports = router;
 Para mesclar arquivos de um modelo Webpack em um aplicativo Express, você pode configurar o Webpack para compilar e gerar os arquivos estáticos, e então configurar o Express para servir esses arquivos estáticos. Aqui está um exemplo de como configurar todos os arquivos e diretórios: [Clique aqui](../projetos/10_/exercicio3_express/).
 
 ## Projetos e exercícios praticos
-
-
 
 Os projetos e exericicos práticos podem ser encontrados em: `projetos/10_` ou [Clicando Aqui](../projetos/10_/).
