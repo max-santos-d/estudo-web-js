@@ -32,7 +32,10 @@
     - [Express Middlewares em JavaScript](#express-middlewares-em-javascript)
       - [Características dos Middlewares](#características-dos-middlewares)
     - [Webpack + Express](#webpack--express)
-    - [Criar um servidor MongoDB](#criar-um-servidor-mongodb)
+  - [MongoDB](#mongodb)
+    - [Criar um servidor](#criar-um-servidor)
+  - [Conexão e primeiro Model](#conexão-e-primeiro-model)
+  - [Conteúdos sobre doker](#conteúdos-sobre-doker)
   - [Projetos e exercícios praticos](#projetos-e-exercícios-praticos)
 
 ## Módulos
@@ -1500,7 +1503,9 @@ module.exports = router;
 
 Para mesclar arquivos de um modelo Webpack em um aplicativo Express, você pode configurar o Webpack para compilar e gerar os arquivos estáticos, e então configurar o Express para servir esses arquivos estáticos. Aqui está um exemplo de como configurar todos os arquivos e diretórios: [Clique aqui](../projetos/10_/exercicio3_express/).
 
-### Criar um servidor MongoDB
+## MongoDB
+
+### Criar um servidor
 
 Existem várias maneiras de criar e configurar um servidor MongoDB, dependendo das necessidades e preferências do desenvolvedor. Abaixo estão algumas das maneiras mais comuns de criar um servidor MongoDB:
 
@@ -1510,6 +1515,26 @@ Existem várias maneiras de criar e configurar um servidor MongoDB, dependendo d
 - **Implantação em provedores de nuvem**: Além do MongoDB Atlas, você pode implantar um servidor MongoDB em provedores de nuvem como AWS, Google Cloud Platform (GCP) e Microsoft Azure. Esses provedores de nuvem oferecem serviços para criar e gerenciar instâncias de máquinas virtuais ou contêineres onde você pode instalar e executar o MongoDB.
 - **Utilizando pacotes de hospedagem**: Algumas empresas de hospedagem web oferecem serviços de hospedagem específicos para o MongoDB, permitindo que você crie e gerencie bancos de dados MongoDB em seus servidores compartilhados ou dedicados.
 - **Configuração manual em servidores**: Em alguns casos, você pode preferir configurar manualmente um servidor MongoDB em um servidor dedicado ou virtualizado. Isso oferece controle total sobre a configuração do servidor, mas requer mais conhecimento técnico e esforço para configurar e manter o servidor.
+
+Para criar um servidor MongoDB nos Servidos em Nuvem dos serviços do Atlas siga os passos abaixo:
+
+- Passo 01: Vá para o site oficial do [MongoDB Atlas](https://www.mongodb.com/pt-br).
+- Passo 02: Se você ainda não tem uma conta, clique em "Começar Gratuitamente" e preencha as informações necessárias para criar uma nova conta. Se já tiver uma conta, faça login.
+- Passo 03: Crie um cluster
+- Passo 04: Crie um Database Access
+- Passo 05: Crie uma Network Access
+- Passo 06: Gere uma connectionString
+- Baixe o [MongoDB Compass](https://www.mongodb.com/try/download/shell)
+
+## Conexão e primeiro Model
+
+## Conteúdos sobre doker
+
+- Documentação para instalação ou desinstalação do Doker [clicando aqui](https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script).
+- Apostila sobre doker: [link](http://files.cod3r.com.br/apostila-docker.pdf)
+- PlayList do Youtube com conteúdos sobre Doker: [link](https://www.youtube.com/playlist?list=PLR8JXremim5BWiO-MCaAffQYwFZrD11-j)
+- Video [Como configurar o MongoDB com Docker e Docker Compose para seu ambiente de desenvolvimento](https://www.youtube.com/watch?v=bn7aN9_5Zes&ab_channel=Jo%C3%A3oPauloS.Ara%C3%BAjo%7CDevdotNET%7CCloud)
+- Video [Ambiente de desenvolvimento NodeJS com Docker e Docker Compose | Diego Fernandes](https://www.youtube.com/watch?v=AVNADGzXrrQ&t=354s&ab_channel=Rocketseat)
 
 ## Projetos e exercícios praticos
 
